@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>الموافقات | نظام الإدارة</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.rtl.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+    <!-- Sidebar -->
+    <div class="sidebar">
+        <div class="sidebar-header">
+            <h3>نظام المدير</h3>
+        </div>
+        <ul class="sidebar-menu">
+            <li><a href="dashboard.html"><i class="fa-solid fa-gauge"></i> لوحة التحكم</a></li>
+            <li class="active"><a href="approvals.html"><i class="fa-solid fa-check-to-slot"></i> الموافقات</a></li>
+            <li><a href="users.html"><i class="fa-solid fa-users"></i> إدارة المستخدمين</a></li>
+            <li><a href="branches.html"><i class="fa-solid fa-building"></i> إدارة الفروع</a></li>
+            <li><a href="services.html"><i class="fa-solid fa-concierge-bell"></i> إدارة الخدمات</a></li>
+            <li><a href="reports.html"><i class="fa-solid fa-chart-line"></i> التقارير</a></li>
+        </ul>
+    </div>
+
+    <!-- Main Content -->
+    <div class="main-content">
+        <nav class="top-navbar">
+            <h4 class="page-title">طلبات المنتظرة للموافقات</h4>
+            <div class="user-profile d-flex align-items-center gap-3">
+                <div class="user-info text-end">
+                    <p class="mb-0 fw-bold">أحمد المدير</p>
+                </div>
+                <img src="https://ui-avatars.com/api/?name=Admin&background=4361ee&color=fff" class="rounded-circle"
+                    width="40" alt="Profile">
+            </div>
+        </nav>
+
+        <div class="container-fluid">
+            <!-- Filter Section -->
+            <div class="d-flex justify-content-between align-items-center mb-4">
+                <div class="btn-group">
+                    <button class="btn btn-primary active">الكل</button>
+                    <button class="btn btn-outline-primary">مالية</button>
+                    <button class="btn btn-outline-primary">إدارية</button>
+                    <button class="btn btn-outline-primary">تغيير صلاحيات</button>
+                </div>
+                <div class="text-muted">عرض 4 طلبات معلقة</div>
+            </div>
+
+            <!-- Approval Cards -->
+            <div class="row g-4">
+                <!-- Approval Item 1 -->
+                <div class="col-12">
+                    <div class="card rounded-card p-4 approval-card">
+                        <div class="row align-items-center">
+                            <div class="col-md-2">
+                                <div class="d-flex align-items-center gap-3">
+                                    <div class="icon-box bg-danger bg-opacity-10 text-danger rounded-circle p-3"
+                                        style="width: 60px; height: 60px; display: flex; align-items:center; justify-content:center;">
+                                        <i class="fa-solid fa-money-bill-transfer fs-4"></i>
+                                    </div>
+                                    <div>
+                                        <small class="text-muted d-block">النوع</small>
+                                        <span class="fw-bold">صرف ميزانية</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-5">
+                                <h6 class="mb-1">طلب شراء أجهزة حاسوب جديدة لفرع جدة</h6>
+                                <p class="text-muted small mb-0">المبلغ المقدر: 45,000 ريال سعودي | مقدم الطلب: خالد
+                                    منصور</p>
+                            </div>
+                            <div class="col-md-2">
+                                <small class="text-muted d-block">التاريخ</small>
+                                <span>30 يناير 2026</span>
+                            </div>
+                            <div class="col-md-3 text-start">
+                                <button class="btn btn-approve me-2"><i class="fa-solid fa-check me-1"></i>
+                                    موافقة</button>
+                                <button class="btn btn-reject"><i class="fa-solid fa-xmark me-1"></i> رفض</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Approval Item 2 -->
+                <div class="col-12">
+                    <div class="card rounded-card p-4 approval-card" style="border-right-color: #4cc9f0;">
+                        <div class="row align-items-center">
+                            <div class="col-md-2">
+                                <div class="d-flex align-items-center gap-3">
+                                    <div class="icon-box bg-info bg-opacity-10 text-info rounded-circle p-3"
+                                        style="width: 60px; height: 60px; display: flex; align-items:center; justify-content:center;">
+                                        <i class="fa-solid fa-user-shield fs-4"></i>
+                                    </div>
+                                    <div>
+                                        <small class="text-muted d-block">النوع</small>
+                                        <span class="fw-bold">تغيير صلاحيات</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-5">
+                                <h6 class="mb-1">ترقية المستخدم 'رشا عبد الله' إلى مشرف فرع</h6>
+                                <p class="text-muted small mb-0">فرع الرياض - قسم العمليات</p>
+                            </div>
+                            <div class="col-md-2">
+                                <small class="text-muted d-block">التاريخ</small>
+                                <span>29 يناير 2026</span>
+                            </div>
+                            <div class="col-md-3 text-start">
+                                <button class="btn btn-approve me-2">موافقة</button>
+                                <button class="btn btn-reject">رفض</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Approval Item 3 -->
+                <div class="col-12">
+                    <div class="card rounded-card p-4 approval-card">
+                        <div class="row align-items-center">
+                            <div class="col-md-2">
+                                <div class="d-flex align-items-center gap-3">
+                                    <div class="icon-box bg-warning bg-opacity-10 text-warning rounded-circle p-3"
+                                        style="width: 60px; height: 60px; display: flex; align-items:center; justify-content:center;">
+                                        <i class="fa-solid fa-file-contract fs-4"></i>
+                                    </div>
+                                    <div>
+                                        <small class="text-muted d-block">النوع</small>
+                                        <span class="fw-bold">تعاقد جديد</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-5">
+                                <h6 class="mb-1">عقد صيانة مع شركة 'الحلول المتكاملة'</h6>
+                                <p class="text-muted small mb-0">مدة العقد: سنتين | القيمة السنوية: 120,000 ريال</p>
+                            </div>
+                            <div class="col-md-2">
+                                <small class="text-muted d-block">التاريخ</small>
+                                <span>28 يناير 2026</span>
+                            </div>
+                            <div class="col-md-3 text-start">
+                                <button class="btn btn-approve me-2">موافقة</button>
+                                <button class="btn btn-reject">رفض</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>

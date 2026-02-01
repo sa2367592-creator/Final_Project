@@ -1,0 +1,1021 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>تقديم طلب | بوابة المواطن</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.rtl.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <div class="sidebar" id="sidebar">
+        <!-- Sidebar content same as others -->
+        <div class="sidebar-brand">
+            <i class="fas fa-landmark"></i>
+            <span>بوابة المواطن</span>
+        </div>
+        <ul class="sidebar-menu">
+            <li><a href="dashboard.html"><i class="fas fa-home"></i> لوحة التحكم</a></li>
+            <li><a href="profile.html"><i class="fas fa-user"></i> الملف الشخصي</a></li>
+            <li><a href="services.html" class="active"><i class="fas fa-concierge-bell"></i> الخدمات الإلكترونية</a>
+            </li>
+            <li><a href="my_requests.html"><i class="fas fa-file-alt"></i> طلباتي</a></li>
+            <li><a href="booking.html"><i class="fas fa-calendar-check"></i> حجز موعد</a></li>
+            <li><a href="notifications.html"><i class="fas fa-bell"></i> الإشعارات</a></li>
+            <li><a href="complaints.html"><i class="fas fa-exclamation-circle"></i> الشكاوى والمقترحات</a></li>
+            <li><a href="#" class="text-danger"><i class="fas fa-sign-out-alt"></i> تسجيل خروج</a></li>
+        </ul>
+    </div>
+
+    <div class="main-content">
+        <div class="d-flex justify-content-between align-items-center mb-4">
+            <div class="d-flex align-items-center">
+                <i class="fas fa-bars menu-toggle me-3" onclick="toggleSidebar()"></i>
+                <div class="d-flex align-items-center gap-2">
+                    <a href="services.html" class="text-muted"><i class="fas fa-arrow-right"></i></a>
+                    <h4 class="m-0 fw-bold">تقديم طلب خدمة</h4>
+                </div>
+            </div>
+        </div>
+
+        <div class="row justify-content-center">
+            <div class="col-lg-9">
+                <div class="custom-card">
+                    <div class="d-flex align-items-center gap-3 mb-4 border-bottom pb-3">
+                        <div class="card-icon mb-0" style="width: 50px; height: 50px; font-size: 1.2rem;">
+                            <i class="fas fa-passport"></i>
+                        </div>
+                        <div>
+                            <h5 class="fw-bold m-0">طلب خدمة </h5>
+                            <small class="text-muted">يرجى تعبئة البيانات المطلوبة بدقة</small>
+                        </div>
+                    </div>
+
+                    <form action="payment.html"> <!-- Redirects to payment for demo -->
+                        <div class="row g-3">
+                            <div class="col-md-6">
+                                <label class="form-label fw-medium">نوع الخدمة</label>
+                                <select class="form-select form-control-custom" id="serviceType"
+                                    onchange="updateServiceUI()">
+                                    <option value="passport">جواز سفر عادي</option>
+                                    <option value="sea_passport">جواز سفر بحري</option>
+                                    <option value="business_passport">جواز سفر رجال أعمال</option>
+                                    <option value="birth">شهادة ميلاد</option>
+                                    <option value="death">شهادة وفاة</option>
+                                    <option value="family">سجل الأسرة</option>
+                                    <option value="id">الهوية الوطنية</option>
+                                    <option value="spinsterhood">شهادة خلو سوابق زواج</option>
+                                </select>
+                            </div>
+                            <div class="col-md-6">
+                                <label class="form-label fw-medium">نوع الطلب</label>
+                                <select class="form-select form-control-custom" id="requestType"
+                                    onchange="toggleCertificateNumber()">
+                                    <option value="new" selected>إصدار جديد</option>
+                                    <option value="renew">تجديد</option>
+                                    <option value="lost">بدل فاقد / تالف</option>
+                                    <option value="modify">تعديل بيانات</option>
+                                </select>
+                            </div>
+                            <!-- Certificate Number Field (Hidden by default) -->
+                            <div class="col-md-6" id="certificateNumberGroup" style="display: none;">
+                                <label class="form-label fw-medium">رقم الشهادة / الوثيقة</label>
+                                <input type="text" class="form-control form-control-custom"
+                                    placeholder="أدخل رقم الشهادة المراد تعديلها">
+                            </div>
+
+                            <div class="col-12 mt-4">
+                                <h6 class="fw-bold text-primary border-bottom pb-2">محل التقديم / السكن</h6>
+                                <div class="row g-3">
+                                    <div class="col-md-6">
+                                        <label class="form-label small text-muted">المحافظة</label>
+                                        <select class="form-select form-control-custom governorate-select">
+                                            <option value="" selected disabled>اختر المحافظة</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <label class="form-label small text-muted">المديرية</label>
+                                        <select class="form-select form-control-custom district-select">
+                                            <option value="" selected disabled>اختر المديرية أولاً</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <label class="form-label small text-muted">الدولة</label>
+                                        <input type="text" class="form-control form-control-custom" value="اليمن">
+                                    </div>
+                                </div>
+                            </div>
+
+
+
+                            <!-- Passport Specific Fields (Hidden by default) -->
+                            <div id="passportFields" class="col-12" style="display: none;">
+                                <h6 class="fw-bold text-primary mt-3 border-bottom pb-2">بيانات الهوية الشخصية</h6>
+                                <div class="row g-3">
+                                    <div class="col-md-3">
+                                        <label class="form-label small text-muted">نوع الهوية</label>
+                                        <select class="form-select form-select-sm">
+                                            <option>بطاقة شخصية</option>
+                                            <option>أخرى</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <label class="form-label small text-muted">رقم الهوية</label>
+                                        <input type="text" class="form-control form-control-sm">
+                                    </div>
+                                    <div class="col-md-3">
+                                        <label class="form-label small text-muted">جهة الإصدار</label>
+                                        <input type="text" class="form-control form-control-sm">
+                                    </div>
+                                    <div class="col-md-3">
+                                        <label class="form-label small text-muted">تاريخ الإصدار</label>
+                                        <input type="date" class="form-control form-control-sm">
+                                    </div>
+                                </div>
+
+                                <h6 class="fw-bold text-primary mt-4 border-bottom pb-2">البيانات الشخصية (Personal
+                                    Details)</h6>
+                                <div class="row g-3">
+                                    <div class="col-md-6">
+                                        <label class="form-label small text-muted">الإسم الثلاثي (Arabic)</label>
+                                        <input type="text" class="form-control form-control-sm">
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label class="form-label small text-muted">Given Name (English)</label>
+                                        <input type="text" class="form-control form-control-sm" dir="ltr">
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label class="form-label small text-muted">اللقب (Surname Arabic)</label>
+                                        <input type="text" class="form-control form-control-sm">
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label class="form-label small text-muted">Surname (English)</label>
+                                        <input type="text" class="form-control form-control-sm" dir="ltr">
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label class="form-label small text-muted">المهنة (Profession Arabic)</label>
+                                        <input type="text" class="form-control form-control-sm">
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label class="form-label small text-muted">Profession (English)</label>
+                                        <input type="text" class="form-control form-control-sm" dir="ltr">
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label class="form-label small text-muted">محل الميلاد (Place of Birth
+                                            Arabic)</label>
+                                        <input type="text" class="form-control form-control-sm">
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label class="form-label small text-muted">Place of Birth (English)</label>
+                                        <input type="text" class="form-control form-control-sm" dir="ltr">
+                                    </div>
+                                    <div class="col-md-4">
+                                        <label class="form-label small text-muted">تاريخ الميلاد (DOB)</label>
+                                        <input type="date" class="form-control form-control-sm">
+                                    </div>
+                                    <div class="col-md-4">
+                                        <label class="form-label small text-muted">الجنس (Sex)</label>
+                                        <select class="form-select form-select-sm">
+                                            <option>ذكر (Male)</option>
+                                            <option>أنثى (Female)</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <label class="form-label small text-muted">الحالة الاجتماعية</label>
+                                        <select class="form-select form-select-sm">
+                                            <option>عازب</option>
+                                            <option>متزوج</option>
+                                            <option>مطلق</option>
+                                            <option>أرمل</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <label class="form-label small text-muted">الطول (cm)</label>
+                                        <input type="number" class="form-control form-control-sm">
+                                    </div>
+                                    <div class="col-md-3">
+                                        <label class="form-label small text-muted">لون الشعر</label>
+                                        <input type="text" class="form-control form-control-sm">
+                                    </div>
+                                    <div class="col-md-3">
+                                        <label class="form-label small text-muted">لون العينين</label>
+                                        <input type="text" class="form-control form-control-sm">
+                                    </div>
+                                    <div class="col-md-3">
+                                        <label class="form-label small text-muted">العلامة المميزة</label>
+                                        <input type="text" class="form-control form-control-sm">
+                                    </div>
+                                </div>
+
+                                <h6 class="fw-bold text-primary mt-4 border-bottom pb-2">بيانات الأم والمنشأ</h6>
+                                <div class="row g-3">
+                                    <div class="col-md-8">
+                                        <label class="form-label small text-muted">إسم الأم ثلاثياً مع اللقب</label>
+                                        <input type="text" class="form-control form-control-sm">
+                                    </div>
+                                    <div class="col-md-4">
+                                        <label class="form-label small text-muted">الجنسية</label>
+                                        <input type="text" class="form-control form-control-sm" value="يمني">
+                                    </div>
+                                </div>
+
+                                <h6 class="fw-bold text-primary mt-4 border-bottom pb-2">العنوان الدائم وجهات الاتصال
+                                </h6>
+                                <div class="row g-3">
+                                    <div class="col-md-9">
+                                        <label class="form-label small text-muted">العنوان الدائم (اسم الشارع)</label>
+                                        <input type="text" class="form-control form-control-sm">
+                                    </div>
+                                    <div class="col-md-3">
+                                        <label class="form-label small text-muted">رقم المنزل</label>
+                                        <input type="text" class="form-control form-control-sm">
+                                    </div>
+                                    <div class="col-md-4">
+                                        <label class="form-label small text-muted">المحافظة</label>
+                                        <select class="form-select form-control-sm governorate-select">
+                                            <option value="" selected disabled>المحافظة</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <label class="form-label small text-muted">الرمز البريدي</label>
+                                        <input type="text" class="form-control form-control-sm">
+                                    </div>
+                                    <div class="col-md-4">
+                                        <label class="form-label small text-muted">المديرية</label>
+                                        <select class="form-select form-control-sm district-select">
+                                            <option value="" selected disabled>المديرية</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label class="form-label small text-muted">رقم التلفون</label>
+                                        <input type="text" class="form-control form-control-sm">
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label class="form-label small text-muted">الدولة</label>
+                                        <input type="text" class="form-control form-control-sm" value="اليمن">
+                                    </div>
+                                </div>
+
+                                <h6 class="fw-bold text-primary mt-4 border-bottom pb-2">بيانات الجواز السابق (إن وجد)
+                                </h6>
+                                <div class="row g-3">
+                                    <div class="col-md-6">
+                                        <label class="form-label small text-muted">رقم الجواز السابق</label>
+                                        <input type="text" class="form-control form-control-sm">
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label class="form-label small text-muted">نوع الجواز السابق</label>
+                                        <input type="text" class="form-control form-control-sm">
+                                    </div>
+                                </div>
+
+                                <h6 class="fw-bold text-primary mt-4 border-bottom pb-2">الأقرباء المقيمين في الدولة
+                                </h6>
+                                <div class="row g-2 mb-3">
+                                    <div class="col-md-3"><input type="text" class="form-control form-control-sm"
+                                            placeholder="الإسم"></div>
+                                    <div class="col-md-2"><input type="text" class="form-control form-control-sm"
+                                            placeholder="صلة القرابة"></div>
+                                    <div class="col-md-4"><input type="text" class="form-control form-control-sm"
+                                            placeholder="العنوان"></div>
+                                    <div class="col-md-3"><input type="text" class="form-control form-control-sm"
+                                            placeholder="رقم التلفون"></div>
+                                </div>
+                                <div class="row g-2">
+                                    <div class="col-md-3"><input type="text" class="form-control form-control-sm"
+                                            placeholder="الإسم"></div>
+                                    <div class="col-md-2"><input type="text" class="form-control form-control-sm"
+                                            placeholder="صلة القرابة"></div>
+                                    <div class="col-md-4"><input type="text" class="form-control form-control-sm"
+                                            placeholder="العنوان"></div>
+                                    <div class="col-md-3"><input type="text" class="form-control form-control-sm"
+                                            placeholder="رقم التلفون"></div>
+                                </div>
+
+                                <div class="mt-4 p-3 border rounded bg-light">
+                                    <h6 class="fw-bold text-secondary border-bottom pb-2">إذا كان مقدم الطلب قاصراً</h6>
+                                    <div class="row g-3">
+                                        <div class="col-md-6">
+                                            <label class="form-label small text-muted">إسم ولي الأمر بالكامل</label>
+                                            <input type="text" class="form-control form-control-sm">
+                                        </div>
+                                        <div class="col-md-6">
+                                            <label class="form-label small text-muted">صلة القرابة</label>
+                                            <input type="text" class="form-control form-control-sm">
+                                        </div>
+                                        <div class="col-md-3">
+                                            <label class="form-label small text-muted">نوع الهوية</label>
+                                            <input type="text" class="form-control form-control-sm">
+                                        </div>
+                                        <div class="col-md-3">
+                                            <label class="form-label small text-muted">رقم الهوية</label>
+                                            <input type="text" class="form-control form-control-sm">
+                                        </div>
+                                        <div class="col-md-3">
+                                            <label class="form-label small text-muted">جهة الإصدار</label>
+                                            <input type="text" class="form-control form-control-sm">
+                                        </div>
+                                        <div class="col-md-3">
+                                            <label class="form-label small text-muted">تاريخ الإصدار</label>
+                                            <input type="date" class="form-control form-control-sm">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Navy Letter Specific Fields (Hidden by default) -->
+                            <div id="navyFields" class="col-12" style="display: none;">
+                                <div class="alert alert-warning border-warning">
+                                    <h6 class="fw-bold"><i class="fas fa-ship me-2"></i>متطلبات جواز السفر البحري</h6>
+                                    <p class="small mb-2">بالإضافة إلى بيانات الجواز العادي، يجب إرفاق رسالة تزكية أو
+                                        موافقة من الجهات البحرية المختصة.</p>
+                                    <div class="mb-0">
+                                        <label class="form-label small fw-bold">إرفاق رسالة البحرية (صورة أو
+                                            PDF)</label>
+                                        <input type="file" class="form-control form-control-sm">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Business Passport Specific Fields (Hidden by default) -->
+                            <div id="businessFields" class="col-12" style="display: none;">
+                                <div class="card bg-light border-primary mb-3">
+                                    <div class="card-body">
+                                        <h6 class="fw-bold text-primary mb-3"><i class="fas fa-briefcase me-2"></i>نوع
+                                            مقدم الطلب (جواز رجال أعمال)</h6>
+                                        <div class="row g-3 align-items-center">
+                                            <div class="col-md-6">
+                                                <select class="form-select form-control-custom" id="businessType"
+                                                    onchange="toggleBusinessDocs()">
+                                                    <option value="businessman">رجل أعمال</option>
+                                                    <option value="trader">تاجر</option>
+                                                </select>
+                                            </div>
+                                        </div>
+
+                                        <!-- Businessman Documents -->
+                                        <div id="businessmanDocs" class="mt-4">
+                                            <label class="form-label fw-bold small">الوثائق المطلوبة لرجل
+                                                الأعمال:</label>
+                                            <div class="row g-2">
+                                                <div class="col-md-6">
+                                                    <div class="p-2 border rounded bg-white small mb-2">رسالة مصرفية من
+                                                        بنك <input type="file"
+                                                            class="form-control form-control-sm mt-1"></div>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <div class="p-2 border rounded bg-white small mb-2">عقد تأسيس شركة
+                                                        <input type="file" class="form-control form-control-sm mt-1">
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <div class="p-2 border rounded bg-white small mb-2">بطاقة ضريبية
+                                                        <input type="file" class="form-control form-control-sm mt-1">
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <div class="p-2 border rounded bg-white small mb-2">أصول عقارية
+                                                        <input type="file" class="form-control form-control-sm mt-1">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <!-- Trader Documents -->
+                                        <div id="traderDocs" class="mt-4" style="display: none;">
+                                            <label class="form-label fw-bold small">الوثائق المطلوبة للتاجر:</label>
+                                            <div class="row g-2">
+                                                <div class="col-md-4">
+                                                    <div class="p-2 border rounded bg-white small mb-2">رخصة بلدية
+                                                        مزاولة مهنة <input type="file"
+                                                            class="form-control form-control-sm mt-1"></div>
+                                                </div>
+                                                <div class="col-md-4">
+                                                    <div class="p-2 border rounded bg-white small mb-2">سجل تجاري <input
+                                                            type="file" class="form-control form-control-sm mt-1"></div>
+                                                </div>
+                                                <div class="col-md-4">
+                                                    <div class="p-2 border rounded bg-white small mb-2">بطاقة ضريبية
+                                                        <input type="file" class="form-control form-control-sm mt-1">
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-4">
+                                                    <div class="p-2 border rounded bg-white small mb-2">بطاقة تأمين
+                                                        <input type="file" class="form-control form-control-sm mt-1">
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-4">
+                                                    <div class="p-2 border rounded bg-white small mb-2">بطاقة زكوية
+                                                        <input type="file" class="form-control form-control-sm mt-1">
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-4">
+                                                    <div class="p-2 border rounded bg-white small mb-2">رسالة من الغرفة
+                                                        التجارية <input type="file"
+                                                            class="form-control form-control-sm mt-1"></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Birth Certificate Specific Fields (Hidden by default) -->
+                            <div id="birthFields" class="col-12" style="display: none;">
+                                <h6 class="fw-bold text-primary mt-3 border-bottom pb-2">بيانات المولود</h6>
+                                <div class="row g-3">
+                                    <div class="col-md-3">
+                                        <label class="form-label small text-muted">اسم المولود</label>
+                                        <input type="text" class="form-control form-control-custom">
+                                    </div>
+                                    <div class="col-md-3">
+                                        <label class="form-label small text-muted">اسم الأب</label>
+                                        <input type="text" class="form-control form-control-custom">
+                                    </div>
+                                    <div class="col-md-3">
+                                        <label class="form-label small text-muted">اسم الجد</label>
+                                        <input type="text" class="form-control form-control-custom">
+                                    </div>
+                                    <div class="col-md-3">
+                                        <label class="form-label small text-muted">اللقب</label>
+                                        <input type="text" class="form-control form-control-custom">
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label class="form-label small text-muted">النوع</label>
+                                        <select class="form-select form-control-custom">
+                                            <option>ذكر</option>
+                                            <option>أنثى</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label class="form-label small text-muted">تاريخ الميلاد</label>
+                                        <input type="date" class="form-control form-control-custom">
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label class="form-label small text-muted">مكان الميلاد</label>
+                                        <input type="text" class="form-control form-control-custom"
+                                            placeholder="المدينة / الدولة">
+                                    </div>
+
+                                    <h6 class="fw-bold text-primary mt-3 border-bottom pb-2">بيانات الوالدين</h6>
+                                    <div class="col-md-6">
+                                        <label class="form-label small text-muted">اسم الأب الكامل</label>
+                                        <input type="text" class="form-control form-control-custom">
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label class="form-label small text-muted">ديانة الأب</label>
+                                        <select class="form-select form-control-custom">
+                                            <option>الإسلام</option>
+                                            <option>أخرى</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label class="form-label small text-muted">اسم الأم الكامل</label>
+                                        <input type="text" class="form-control form-control-custom">
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label class="form-label small text-muted">ديانة الأم</label>
+                                        <select class="form-select form-control-custom">
+                                            <option>الإسلام</option>
+                                            <option>أخرى</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Death Certificate Specific Fields (Hidden by default) -->
+                            <div id="deathFields" class="col-12" style="display: none;">
+                                <h6 class="fw-bold text-primary mt-3 border-bottom pb-2">بيانات المتوفي</h6>
+                                <div class="row g-3">
+                                    <div class="col-md-6">
+                                        <label class="form-label small text-muted">اسم المتوفي الكامل</label>
+                                        <input type="text" class="form-control form-control-custom">
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label class="form-label small text-muted">رقم الهوية / الجواز (إن وجد)</label>
+                                        <input type="text" class="form-control form-control-custom">
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label class="form-label small text-muted">تاريخ الميلاد</label>
+                                        <input type="date" class="form-control form-control-custom">
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label class="form-label small text-muted">تاريخ الوفاة</label>
+                                        <input type="date" class="form-control form-control-custom">
+                                    </div>
+                                    <div class="col-md-3">
+                                        <label class="form-label small text-muted">النوع</label>
+                                        <select class="form-select form-control-custom">
+                                            <option>ذكر</option>
+                                            <option>أنثى</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <label class="form-label small text-muted">الحالة الاجتماعية</label>
+                                        <select class="form-select form-control-custom">
+                                            <option>أعزب / عزباء</option>
+                                            <option>متزوج / متزوجة</option>
+                                            <option>أرمل / أرملة</option>
+                                            <option>مطلق / مطلقة</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label class="form-label small text-muted">المهنة</label>
+                                        <input type="text" class="form-control form-control-custom">
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label class="form-label small text-muted">سبب الوفاة</label>
+                                        <input type="text" class="form-control form-control-custom">
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label class="form-label small text-muted">عنوان المتوفي</label>
+                                        <input type="text" class="form-control form-control-custom">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Family Register Specific Fields (Hidden by default) -->
+                            <div id="familyFields" class="col-12" style="display: none;">
+                                <h6 class="fw-bold text-primary mt-3 border-bottom pb-2">بيانات رب الأسرة</h6>
+                                <div class="row g-3">
+                                    <div class="col-md-4">
+                                        <label class="form-label small text-muted">الاسم الكامل لرب الأسرة</label>
+                                        <input type="text" class="form-control form-control-custom">
+                                    </div>
+                                    <div class="col-md-4">
+                                        <label class="form-label small text-muted">رقم الهوية</label>
+                                        <input type="text" class="form-control form-control-custom">
+                                    </div>
+                                    <div class="col-md-4">
+                                        <label class="form-label small text-muted">جنسية رب الأسرة</label>
+                                        <input type="text" class="form-control form-control-custom" value="سعودي">
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label class="form-label small text-muted">محل الإقامة</label>
+                                        <input type="text" class="form-control form-control-custom">
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label class="form-label small text-muted">المهنة</label>
+                                        <input type="text" class="form-control form-control-custom">
+                                    </div>
+                                    <div class="col-md-4">
+                                        <label class="form-label small text-muted">اسم والدة رب الأسرة</label>
+                                        <input type="text" class="form-control form-control-custom">
+                                    </div>
+                                    <div class="col-md-4">
+                                        <label class="form-label small text-muted">جنسية الوالدة</label>
+                                        <input type="text" class="form-control form-control-custom">
+                                    </div>
+                                    <div class="col-md-4">
+                                        <label class="form-label small text-muted">الديانة</label>
+                                        <select class="form-select form-control-custom">
+                                            <option>الإسلام</option>
+                                            <option>أخرى</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label class="form-label small text-muted">تاريخ الإصدار</label>
+                                        <input type="date" class="form-control form-control-custom">
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label class="form-label small text-muted">تاريخ الانتهاء</label>
+                                        <input type="date" class="form-control form-control-custom">
+                                    </div>
+                                </div>
+
+                                <div class="d-flex justify-content-between align-items-center mt-3 border-bottom pb-2">
+                                    <h6 class="fw-bold text-primary m-0">بيانات الزوجات</h6>
+                                    <button type="button" class="btn btn-sm btn-outline-primary" onclick="addWife()">
+                                        <i class="fas fa-plus"></i> إضافة زوجة
+                                    </button>
+                                </div>
+                                <div id="wivesContainer" class="mt-2">
+                                    <!-- Wives will be added here -->
+                                </div>
+
+                                <div class="d-flex justify-content-between align-items-center mt-3 border-bottom pb-2">
+                                    <h6 class="fw-bold text-primary m-0">بيانات الأبناء</h6>
+                                    <button type="button" class="btn btn-sm btn-outline-primary" onclick="addChild()">
+                                        <i class="fas fa-plus"></i> إضافة ابن/ابنة
+                                    </button>
+                                </div>
+                                <div id="childrenContainer" class="mt-2">
+                                    <!-- Children will be added here -->
+                                </div>
+                            </div>
+
+                            <!-- National ID Specific Fields (Hidden by default) -->
+                            <div id="idFields" class="col-12" style="display: none;">
+                                <!-- Applicant Data -->
+                                <h6 class="fw-bold text-primary mt-3 border-bottom pb-2">بيانات مقدم الطلب</h6>
+                                <div class="row g-3">
+                                    <div class="col-12"><label class="form-label small text-muted">الاسم باللغة العربية
+                                            (الأول، الثاني، الثالث، الرابع، اللقب)</label></div>
+                                    <div class="col-md-2 col-4"><input type="text" class="form-control form-control-sm"
+                                            placeholder="الأول"></div>
+                                    <div class="col-md-2 col-4"><input type="text" class="form-control form-control-sm"
+                                            placeholder="الثاني"></div>
+                                    <div class="col-md-2 col-4"><input type="text" class="form-control form-control-sm"
+                                            placeholder="الثالث"></div>
+                                    <div class="col-md-3 col-6"><input type="text" class="form-control form-control-sm"
+                                            placeholder="الرابع"></div>
+                                    <div class="col-md-3 col-6"><input type="text" class="form-control form-control-sm"
+                                            placeholder="العائلة/اللقب"></div>
+
+                                    <div class="col-12"><label class="form-label small text-muted">Name in English
+                                            (First, Second, Third, Fourth, Surname)</label></div>
+                                    <div class="col-md-2 col-4"><input type="text" class="form-control form-control-sm"
+                                            placeholder="First"></div>
+                                    <div class="col-md-2 col-4"><input type="text" class="form-control form-control-sm"
+                                            placeholder="Second"></div>
+                                    <div class="col-md-2 col-4"><input type="text" class="form-control form-control-sm"
+                                            placeholder="Third"></div>
+                                    <div class="col-md-3 col-6"><input type="text" class="form-control form-control-sm"
+                                            placeholder="Fourth"></div>
+                                    <div class="col-md-3 col-6"><input type="text" class="form-control form-control-sm"
+                                            placeholder="Surname"></div>
+
+                                    <div class="col-md-3">
+                                        <label class="form-label small text-muted">الجنس</label>
+                                        <select class="form-select form-select-sm">
+                                            <option>ذكر</option>
+                                            <option>أنثى</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <label class="form-label small text-muted">الحالة الاجتماعية</label>
+                                        <select class="form-select form-select-sm">
+                                            <option>عازب</option>
+                                            <option>متزوج</option>
+                                            <option>مطلق</option>
+                                            <option>أرمل</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <label class="form-label small text-muted">تاريخ الميلاد</label>
+                                        <input type="date" class="form-control form-control-sm">
+                                    </div>
+                                    <div class="col-md-3">
+                                        <label class="form-label small text-muted">الرقم الوطني القديم</label>
+                                        <input type="text" class="form-control form-control-sm">
+                                    </div>
+
+                                    <div class="col-md-3">
+                                        <label class="form-label small text-muted">المؤهل العلمي</label>
+                                        <input type="text" class="form-control form-control-sm">
+                                    </div>
+                                    <div class="col-md-3">
+                                        <label class="form-label small text-muted">التخصص</label>
+                                        <input type="text" class="form-control form-control-sm">
+                                    </div>
+                                    <div class="col-md-2">
+                                        <label class="form-label small text-muted">الديانة</label>
+                                        <input type="text" class="form-control form-control-sm" value="الإسلام">
+                                    </div>
+                                    <div class="col-md-2">
+                                        <label class="form-label small text-muted">فصيلة الدم</label>
+                                        <select class="form-select form-select-sm">
+                                            <option>A+</option>
+                                            <option>A-</option>
+                                            <option>B+</option>
+                                            <option>B-</option>
+                                            <option>O+</option>
+                                            <option>O-</option>
+                                            <option>AB+</option>
+                                            <option>AB-</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-md-2">
+                                        <label class="form-label small text-muted">الإعاقة (إن وجدت)</label>
+                                        <input type="text" class="form-control form-control-sm">
+                                    </div>
+
+                                    <div class="col-12"><label class="form-label fw-bold small text-primary mt-2">مكان
+                                            الميلاد</label></div>
+                                    <div class="col-md-2 col-6"><input type="text" class="form-control form-control-sm"
+                                            placeholder="الدولة"></div>
+                                    <div class="col-md-2 col-6"><input type="text" class="form-control form-control-sm"
+                                            placeholder="المحافظة"></div>
+                                    <div class="col-md-3 col-4"><input type="text" class="form-control form-control-sm"
+                                            placeholder="المديرية"></div>
+                                    <div class="col-md-3 col-4"><input type="text" class="form-control form-control-sm"
+                                            placeholder="المدينة/العزلة"></div>
+                                    <div class="col-md-2 col-4"><input type="text" class="form-control form-control-sm"
+                                            placeholder="الحي/القرية"></div>
+                                </div>
+
+                                <!-- Related Persons -->
+                                <h6 class="fw-bold text-primary mt-4 border-bottom pb-2">الأشخاص ذوي الصلة</h6>
+                                <div class="row g-3">
+                                    <div class="col-md-6">
+                                        <label class="form-label small text-muted">الرقم الوطني للأب</label>
+                                        <input type="text" class="form-control form-control-sm">
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label class="form-label small text-muted">جنسية الأب</label>
+                                        <input type="text" class="form-control form-control-sm">
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label class="form-label small text-muted">الرقم الوطني للأم</label>
+                                        <input type="text" class="form-control form-control-sm">
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label class="form-label small text-muted">جنسية الأم</label>
+                                        <input type="text" class="form-control form-control-sm">
+                                    </div>
+
+                                    <div class="col-12"><label class="form-label small text-muted">اسم الأم (الأول،
+                                            الثاني، الثالث، الرابع، اللقب)</label></div>
+                                    <div class="col-md-2 col-4"><input type="text" class="form-control form-control-sm"
+                                            placeholder="الأول"></div>
+                                    <div class="col-md-2 col-4"><input type="text" class="form-control form-control-sm"
+                                            placeholder="الثاني"></div>
+                                    <div class="col-md-2 col-4"><input type="text" class="form-control form-control-sm"
+                                            placeholder="الثالث"></div>
+                                    <div class="col-md-3 col-6"><input type="text" class="form-control form-control-sm"
+                                            placeholder="الرابع"></div>
+                                    <div class="col-md-3 col-6"><input type="text" class="form-control form-control-sm"
+                                            placeholder="العائلة/اللقب"></div>
+
+                                    <div class="col-12"><label class="form-label fw-bold small text-primary mt-2">بيانات
+                                            الشهود</label></div>
+                                    <div class="col-md-4"><input type="text" class="form-control form-control-sm"
+                                            placeholder="اسم الشاهد الأول"></div>
+                                    <div class="col-md-4"><input type="text" class="form-control form-control-sm"
+                                            placeholder="الرقم الوطني"></div>
+                                    <div class="col-md-4"><input type="text" class="form-control form-control-sm"
+                                            placeholder="العنوان ورقم الهاتف"></div>
+
+                                    <div class="col-md-4"><input type="text" class="form-control form-control-sm"
+                                            placeholder="اسم الشاهد الثاني"></div>
+                                    <div class="col-md-4"><input type="text" class="form-control form-control-sm"
+                                            placeholder="الرقم الوطني"></div>
+                                    <div class="col-md-4"><input type="text" class="form-control form-control-sm"
+                                            placeholder="العنوان ورقم الهاتف"></div>
+                                </div>
+
+                                <!-- Contact & Work -->
+                                <h6 class="fw-bold text-primary mt-4 border-bottom pb-2">طريقة الاتصال وجهة العمل</h6>
+                                <div class="row g-3">
+                                    <div class="col-md-6"><label class="form-label small text-muted">رقم
+                                            الهاتف</label><input type="text" class="form-control form-control-sm"></div>
+                                    <div class="col-md-6"><label class="form-label small text-muted">البريد
+                                            الإلكتروني</label><input type="email" class="form-control form-control-sm">
+                                    </div>
+
+                                    <div class="col-12"><label class="form-label fw-bold small text-primary mt-2">عنوان
+                                            السكن</label></div>
+                                    <div class="col-md-2 col-6"><input type="text" class="form-control form-control-sm"
+                                            placeholder="المحافظة"></div>
+                                    <div class="col-md-2 col-6"><input type="text" class="form-control form-control-sm"
+                                            placeholder="المديرية"></div>
+                                    <div class="col-md-2 col-6"><input type="text" class="form-control form-control-sm"
+                                            placeholder="المدينة/العزلة"></div>
+                                    <div class="col-md-2 col-6"><input type="text" class="form-control form-control-sm"
+                                            placeholder="القرية/الحي"></div>
+                                    <div class="col-md-4 col-12"><input type="text" class="form-control form-control-sm"
+                                            placeholder="معلومات إضافية"></div>
+
+                                    <div class="col-12"><label class="form-label fw-bold small text-primary mt-2">جهة
+                                            العمل</label></div>
+                                    <div class="col-md-3"><input type="text" class="form-control form-control-sm"
+                                            placeholder="المهنة / الوظيفة"></div>
+                                    <div class="col-md-3"><input type="text" class="form-control form-control-sm"
+                                            placeholder="الدولة"></div>
+                                    <div class="col-md-3"><input type="text" class="form-control form-control-sm"
+                                            placeholder="المحافظة"></div>
+                                    <div class="col-md-3"><input type="text" class="form-control form-control-sm"
+                                            placeholder="اسم جهة العمل"></div>
+                                </div>
+                            </div>
+
+                            <!-- Spinsterhood Certificate Specific Fields (Hidden by default) -->
+                            <div id="spinsterhoodFields" class="col-12" style="display: none;">
+                                <h6 class="fw-bold text-primary mt-3 border-bottom pb-2">بيانات إثبات الحالة (خلو سوابق
+                                    زواج)</h6>
+                                <div class="row g-3">
+                                    <div class="col-md-6">
+                                        <label class="form-label small text-muted">الاسم الكامل (كما في الهوية)</label>
+                                        <input type="text" class="form-control form-control-custom">
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label class="form-label small text-muted">رقم الهوية الوطنية</label>
+                                        <input type="text" class="form-control form-control-custom"
+                                            placeholder="أدخل 10 أرقام">
+                                    </div>
+                                    <div class="col-md-4">
+                                        <label class="form-label small text-muted">الجنس</label>
+                                        <select class="form-select form-control-custom">
+                                            <option>ذكر</option>
+                                            <option>أنثى</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <label class="form-label small text-muted">الحالة الاجتماعية الحالية</label>
+                                        <select class="form-select form-control-custom">
+                                            <option>عازب / عزباء</option>
+                                            <option>مطلق / مطلقة</option>
+                                            <option>أرمل / أرملة</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <label class="form-label small text-muted">تاريخ الميلاد</label>
+                                        <input type="date" class="form-control form-control-custom">
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label class="form-label small text-muted">الجنسية</label>
+                                        <input type="text" class="form-control form-control-custom" value="سعودي">
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label class="form-label small text-muted">مكان الميلاد</label>
+                                        <input type="text" class="form-control form-control-custom">
+                                    </div>
+                                    <div class="col-md-12">
+                                        <label class="form-label small text-muted">العنوان السكني بالكامل</label>
+                                        <input type="text" class="form-control form-control-custom">
+                                    </div>
+                                    <div class="col-12">
+                                        <div class="alert alert-info py-2 small">
+                                            <i class="fas fa-info-circle me-1"></i>
+                                            ملاحظة: يتطلب هذا الطلب شهادة شاهدين في بعض الحالات للتأكد من الحالة
+                                            الاجتماعية.
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-md-12">
+                                <label class="form-label fw-medium">المرفقات المطلوبة</label>
+                                <div class="border rounded-3 p-4 text-center bg-light"
+                                    style="border-style: dashed !important;">
+                                    <i class="fas fa-cloud-upload-alt fs-2 text-muted mb-2"></i>
+                                    <p class="mb-2">اسحب وأفلت الملفات هنا أو</p>
+                                    <button type="button" class="btn btn-outline-primary btn-sm">تصفح الملفات</button>
+                                    <div class="mt-2 text-muted small">المستندات الداعمة (صورة الهوية، صور شخصية،
+                                        تقارير، إلخ)</div>
+                                </div>
+                            </div>
+
+                            <div class="col-md-12">
+                                <label class="form-label fw-medium">ملاحظات إضافية</label>
+                                <textarea class="form-control form-control-custom" rows="3"
+                                    placeholder="أدخل أي تفاصيل إضافية هنا..."></textarea>
+                            </div>
+                        </div>
+
+                        <div class="d-flex justify-content-end gap-2 mt-4 pt-3 border-top">
+                            <a href="services.html" class="btn btn-light px-4">إلغاء</a>
+                            <button type="submit" class="btn btn-primary-custom px-5">إرسال الطلب</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+            <!-- Summary Sidebar -->
+            <div class="col-lg-3 mt-4 mt-lg-0">
+                <div class="custom-card bg-light border">
+                    <h6 class="fw-bold mb-3">ملخص الطلب</h6>
+                    <div class="d-flex justify-content-between mb-2">
+                        <span class="text-muted small">رسوم الخدمة</span>
+                        <span class="fw-bold">300 ر.س</span>
+                    </div>
+                    <div class="d-flex justify-content-between mb-2">
+                        <span class="text-muted small">ضريبة ق.م</span>
+                        <span class="fw-bold">45 ر.س</span>
+                    </div>
+                    <hr>
+                    <div class="d-flex justify-content-between">
+                        <span class="fw-bold">الإجمالي</span>
+                        <span class="fw-bold text-primary">345 ر.س</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        function toggleSidebar() { document.getElementById('sidebar').classList.toggle('active'); }
+
+        function toggleCertificateNumber() {
+            const requestType = document.getElementById('requestType').value;
+            const certGroup = document.getElementById('certificateNumberGroup');
+            certGroup.style.display = (requestType === 'modify') ? 'block' : 'none';
+        }
+
+        let wifeCount = 0;
+        function addWife() {
+            if (wifeCount >= 4) { alert('الحد الأقصى للزوجات هو 4'); return; }
+            wifeCount++;
+            const container = document.getElementById('wivesContainer');
+            const id = 'wife-' + Date.now();
+            const html = `
+                <div class="card p-3 mb-2 bg-white border" id="${id}">
+                    <div class="d-flex justify-content-between mb-2">
+                        <span class="fw-bold small text-secondary">الزوجة ${wifeCount}</span>
+                        ${wifeCount > 1 ? `<button type="button" class="btn btn-sm text-danger p-0" onclick="removeElement('${id}', 'wife')"><i class="fas fa-trash-alt"></i> حذف</button>` : ''}
+                    </div>
+                    <div class="row g-2">
+                        <div class="col-md-4"><input type="text" class="form-control form-control-sm" placeholder="الاسم الكامل"></div>
+                        <div class="col-md-4"><input type="text" class="form-control form-control-sm" placeholder="رقم الهوية"></div>
+                        <div class="col-md-4"><input type="text" class="form-control form-control-sm" placeholder="الجنسية" value="سعودية"></div>
+                        <div class="col-md-6"><input type="date" class="form-control form-control-sm"></div>
+                        <div class="col-md-6"><input type="text" class="form-control form-control-sm" placeholder="مكان الميلاد"></div>
+                    </div>
+                </div>`;
+            container.insertAdjacentHTML('beforeend', html);
+        }
+
+        function addChild() {
+            const container = document.getElementById('childrenContainer');
+            const id = 'child-' + Date.now();
+            const html = `
+                <div class="card p-3 mb-2 bg-white border" id="${id}">
+                    <div class="d-flex justify-content-between mb-2">
+                        <span class="fw-bold small text-secondary">ابن / ابنة</span>
+                        <button type="button" class="btn btn-sm text-danger p-0" onclick="removeElement('${id}', 'child')"><i class="fas fa-trash-alt"></i> حذف</button>
+                    </div>
+                    <div class="row g-2">
+                        <div class="col-md-3"><input type="text" class="form-control form-control-sm" placeholder="الاسم الأول"></div>
+                        <div class="col-md-3"><input type="text" class="form-control form-control-sm" placeholder="رقم الهوية"></div>
+                        <div class="col-md-3"><select class="form-select form-select-sm"><option>ذكر</option><option>أنثى</option></select></div>
+                        <div class="col-md-3"><input type="date" class="form-control form-control-sm"></div>
+                    </div>
+                </div>`;
+            container.insertAdjacentHTML('beforeend', html);
+        }
+
+        function removeElement(id, type) {
+            document.getElementById(id).remove();
+            if (type === 'wife') wifeCount--;
+        }
+
+        function toggleBusinessDocs() {
+            const type = document.getElementById('businessType').value;
+            document.getElementById('businessmanDocs').style.display = (type === 'businessman') ? 'block' : 'none';
+            document.getElementById('traderDocs').style.display = (type === 'trader') ? 'block' : 'none';
+        }
+
+        function updateServiceUI() {
+            const service = document.getElementById('serviceType').value;
+            const titles = {
+                'id': { name: 'الهوية الوطنية', icon: 'fa-id-card' },
+                'passport': { name: 'جواز سفر عادي', icon: 'fa-passport' },
+                'sea_passport': { name: 'جواز سفر بحري', icon: 'fa-anchor' },
+                'business_passport': { name: 'جواز سفر رجال أعمال', icon: 'fa-user-tie' },
+                'spinsterhood': { name: 'شهادة خلو سوابق زواج', icon: 'fa-file-signature' }
+            };
+
+            const selected = titles[service] || titles['passport'];
+            document.querySelector('h5.fw-bold').innerText = 'طلب خدمة: ' + selected.name;
+            document.querySelector('.card-icon i').className = 'fas ' + selected.icon;
+
+            // Show/Hide Sections
+            const isPassport = ['passport', 'sea_passport', 'business_passport'].includes(service);
+            document.getElementById('passportFields').style.display = isPassport ? 'block' : 'none';
+            document.getElementById('navyFields').style.display = (service === 'sea_passport') ? 'block' : 'none';
+            document.getElementById('businessFields').style.display = (service === 'business_passport') ? 'block' : 'none';
+            document.getElementById('birthFields').style.display = (service === 'birth') ? 'block' : 'none';
+            document.getElementById('deathFields').style.display = (service === 'death') ? 'block' : 'none';
+            document.getElementById('familyFields').style.display = (service === 'family') ? 'block' : 'none';
+            document.getElementById('idFields').style.display = (service === 'id') ? 'block' : 'none';
+            document.getElementById('spinsterhoodFields').style.display = (service === 'spinsterhood') ? 'block' : 'none';
+
+            if (service === 'business_passport') toggleBusinessDocs();
+
+            // Special Logic for Family Register
+            if (service === 'family' && wifeCount === 0) {
+                document.getElementById('wivesContainer').innerHTML = '';
+                document.getElementById('childrenContainer').innerHTML = '';
+                addWife(); addChild();
+            }
+
+            // Handle "No Renewal" for Birth/Death
+            const requestTypeSelect = document.getElementById('requestType');
+            const noRenew = ['birth', 'death'].includes(service);
+            for (let opt of requestTypeSelect.options) {
+                if (opt.value === 'renew') {
+                    opt.style.display = noRenew ? 'none' : 'block';
+                    opt.disabled = noRenew;
+                }
+            }
+            if (noRenew && requestTypeSelect.value === 'renew') requestTypeSelect.value = 'new';
+        }
+
+        document.addEventListener('DOMContentLoaded', function () {
+            const urlParams = new URLSearchParams(window.location.search);
+            const service = urlParams.get('service');
+            if (service) {
+                document.getElementById('serviceType').value = service;
+            }
+            updateServiceUI();
+            toggleCertificateNumber();
+        });
+    </script>
+</body>
+
+</html>

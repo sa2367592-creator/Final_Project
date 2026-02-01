@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>الملف الشخصي | بوابة المواطن</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.rtl.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+
+    <div class="sidebar" id="sidebar">
+        <div class="sidebar-brand">
+            <i class="fas fa-landmark"></i>
+            <span>بوابة المواطن</span>
+        </div>
+        <ul class="sidebar-menu">
+            <li><a href="dashboard.html"><i class="fas fa-home"></i> لوحة التحكم</a></li>
+            <li><a href="profile.html" class="active"><i class="fas fa-user"></i> الملف الشخصي</a></li>
+            <li><a href="services.html"><i class="fas fa-concierge-bell"></i> الخدمات الإلكترونية</a></li>
+            <li><a href="my_requests.html"><i class="fas fa-file-alt"></i> طلباتي</a></li>
+            <li><a href="booking.html"><i class="fas fa-calendar-check"></i> حجز موعد</a></li>
+            <li><a href="notifications.html"><i class="fas fa-bell"></i> الإشعارات</a></li>
+            <li><a href="complaints.html"><i class="fas fa-exclamation-circle"></i> الشكاوى والمقترحات</a></li>
+            <li><a href="#" class="text-danger"><i class="fas fa-sign-out-alt"></i> تسجيل خروج</a></li>
+        </ul>
+    </div>
+
+    <div class="main-content">
+        <div class="d-flex justify-content-between align-items-center mb-4">
+            <div class="d-flex align-items-center">
+                <i class="fas fa-bars menu-toggle me-3" onclick="toggleSidebar()"></i>
+                <h4 class="m-0 fw-bold">الملف الشخصي</h4>
+            </div>
+        </div>
+
+        <div class="row justify-content-center">
+            <div class="col-lg-10">
+
+                <div class="profile-hero-simple">
+                    <img src="https://avatar.iran.liara.run/public/33" class="avatar-simple" alt="Profile">
+                    <div>
+                        <h3 class="fw-bold m-0">محمد أحمد العلي</h3>
+                        <p class="m-0 opacity-75">مواطن يمني | حساب موثق</p>
+                    </div>
+                </div>
+
+                <div class="custom-card read-only-form">
+                    <div class="d-flex justify-content-between align-items-center mb-4">
+                        <h5 class="profile-section-title m-0">
+                            <i class="fas fa-user-shield"></i> البيانات الشخصية
+                        </h5>
+                    </div>
+
+                    <div class="row g-4">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label class="read-only-label">الاسم الكامل</label>
+                                <div class="read-only-value">محمد أحمد العلي</div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label class="read-only-label">رقم الهوية الوطنية</label>
+                                <div class="read-only-value">1029384756</div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label class="read-only-label">رقم الهاتف القديم</label>
+                                <div class="read-only-value">0501234567</div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label class="read-only-label">البريد الإلكتروني</label>
+                                <div class="read-only-value">mohamed.ali@example.com</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="mt-1 pt-1 border-top text-center">
+                        <a href="edit_profile.html" class="btn btn-primary-custom px-5 py-2 rounded-pill shadow">
+                            <i class="fas fa-user-edit me-2"></i>تعديل البيانات
+                        </a>
+                    </div>
+                </div>
+
+                <div class="row mt-4">
+                    <div class="col-md-6">
+                        <div class="custom-card">
+                            <h6 class="fw-bold border-bottom pb-2 mb-3">حالة الحساب</h6>
+                            <div class="d-flex justify-content-between align-items-center mb-2">
+                                <span class="text-muted small">آخر دخول</span>
+                                <span class="fw-bold small">منذ ساعة</span>
+                            </div>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <span class="text-muted small">تاريخ الانضمام</span>
+                                <span class="fw-bold small">يناير 2024</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="custom-card">
+                            <h6 class="fw-bold border-bottom pb-2 mb-3">إحصائيات سريعة</h6>
+                            <div class="row text-center g-2">
+                                <div class="col-6">
+                                    <div class="bg-light p-2 rounded">
+                                        <span class="d-block fw-bold text-primary">12</span>
+                                        <span class="small text-muted">طلب منجز</span>
+                                    </div>
+                                </div>
+                                <div class="col-6">
+                                    <div class="bg-light p-2 rounded">
+                                        <span class="d-block fw-bold text-success">150</span>
+                                        <span class="small text-muted">نقطة</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="script.js"></script>
+</body>
+
+</html>

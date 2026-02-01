@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>طلب سجل الأسرة | بوابة المواطن</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.rtl.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <div class="sidebar" id="sidebar">
+        <div class="sidebar-brand">
+            <i class="fas fa-landmark"></i>
+            <span>بوابة المواطن</span>
+        </div>
+        <ul class="sidebar-menu">
+            <li><a href="dashboard.html"><i class="fas fa-home"></i> لوحة التحكم</a></li>
+            <li><a href="profile.html"><i class="fas fa-user"></i> الملف الشخصي</a></li>
+            <li><a href="services.html" class="active"><i class="fas fa-concierge-bell"></i> الخدمات الإلكترونية</a>
+            </li>
+            <li><a href="my_requests.html"><i class="fas fa-file-alt"></i> طلباتي</a></li>
+            <li><a href="booking.html"><i class="fas fa-calendar-check"></i> حجز موعد</a></li>
+            <li><a href="notifications.html"><i class="fas fa-bell"></i> الإشعارات</a></li>
+            <li><a href="complaints.html"><i class="fas fa-exclamation-circle"></i> الشكاوى والمقترحات</a></li>
+            <li><a href="#" class="text-danger"><i class="fas fa-sign-out-alt"></i> تسجيل خروج</a></li>
+        </ul>
+    </div>
+
+    <div class="main-content">
+        <div class="d-flex justify-content-between align-items-center mb-4">
+            <div class="d-flex align-items-center">
+                <i class="fas fa-bars menu-toggle me-3" onclick="toggleSidebar()"></i>
+                <div class="d-flex align-items-center gap-2">
+                    <a href="services.html" class="text-muted"><i class="fas fa-arrow-right"></i></a>
+                    <h4 class="m-0 fw-bold">تقديم طلب خدمة</h4>
+                </div>
+            </div>
+        </div>
+
+        <div class="row justify-content-center">
+            <div class="col-lg-9">
+                <div class="custom-card">
+                    <div class="d-flex align-items-center gap-3 mb-4 border-bottom pb-3">
+                        <div class="card-icon mb-0"
+                            style="width: 50px; height: 50px; font-size: 1.2rem; background: var(--success-light); color: var(--success-color);">
+                            <i class="fas fa-users"></i>
+                        </div>
+                        <div>
+                            <h5 class="fw-bold m-0">طلب سجل الأسرة</h5>
+                            <small class="text-muted">يرجى تعبئة البيانات المطلوبة بدقة</small>
+                        </div>
+                    </div>
+
+                    <form action="payment.html">
+                        <div class="row g-3">
+                            <div class="col-md-6">
+                                <label class="form-label fw-medium">نوع الطلب</label>
+                                <select class="form-select form-control-custom" id="requestType"
+                                    onchange="toggleCertificateNumber()">
+                                    <option value="new" selected>إصدار جديد</option>
+                                    <option value="renew">تجديد</option>
+                                    <option value="lost">بدل فاقد / تالف</option>
+                                </select>
+                            </div>
+
+                            <div class="col-md-6" id="certificateNumberGroup" style="display: none;">
+                                <label class="form-label fw-medium">رقم السجل الحالي</label>
+                                <input type="text" class="form-control form-control-custom"
+                                    placeholder="أدخل رقم السجل">
+                            </div>
+
+                            <div class="col-12">
+                                <h6 class="fw-bold text-primary mt-3 border-bottom pb-2">المرفقات المطلوبة</h6>
+                                <div class="row g-3">
+                                    <div class="col-md-12">
+                                        <label class="form-label small text-muted">صورة الهوية الوطنية / عقد الزواج /
+                                            وثائق أخرى</label>
+                                        <input type="file" class="form-control form-control-custom">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Family Fields -->
+                            <div class="col-12">
+                                <!-- Husband's Data (Head of Family) -->
+                                <h6 class="fw-bold text-primary mt-3 mb-3 border-bottom pb-2">بيانات الزوج (رب الأسرة)
+                                </h6>
+                                <div class="row g-3 mb-4">
+                                    <div class="col-md-6">
+                                        <label class="form-label small text-muted">اسم الزوج بالكامل</label>
+                                        <input type="text" class="form-control form-control-sm"
+                                            placeholder="الاسم الكامل">
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label class="form-label small text-muted">رقم الهوية الوطنية</label>
+                                        <input type="text" class="form-control form-control-sm"
+                                            placeholder="رقم الهوية الوطنية">
+                                    </div>
+                                    <div class="col-md-4">
+                                        <label class="form-label small text-muted">مكان إصدار الهوية</label>
+                                        <select class="form-select form-control-sm governorate-select">
+                                            <option value="" selected disabled>اختر المحافظة</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <label class="form-label small text-muted">تاريخ انتهاء الهوية
+                                            (الصلاحية)</label>
+                                        <input type="date" class="form-control form-control-sm">
+                                    </div>
+                                    <div class="col-md-4">
+                                        <label class="form-label small text-muted">مكان الميلاد (المحافظة)</label>
+                                        <select class="form-select form-control-sm governorate-select">
+                                            <option value="" selected disabled>اختر المحافظة</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <label class="form-label small text-muted">مكان الميلاد (المديرية)</label>
+                                        <select class="form-select form-control-sm district-select">
+                                            <option value="" selected disabled>اختر المديرية أولاً</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <label class="form-label small text-muted">تاريخ الميلاد</label>
+                                        <input type="date" class="form-control form-control-sm">
+                                    </div>
+                                </div>
+
+                                <h6 class="fw-bold text-primary mt-4 border-bottom pb-2">عنوان السكن الحالي</h6>
+                                <div class="row g-3">
+                                    <div class="col-md-6">
+                                        <label class="form-label small text-muted">المحافظة</label>
+                                        <select class="form-select form-control-sm governorate-select">
+                                            <option value="" selected disabled>اختر المحافظة</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <label class="form-label small text-muted">المديرية</label>
+                                        <select class="form-select form-control-sm district-select">
+                                            <option value="" selected disabled>اختر المديرية أولاً</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <label class="form-label small text-muted">الدولة</label>
+                                        <input type="text" class="form-control form-control-sm" value="اليمن"
+                                            placeholder="الدولة">
+                                    </div>
+                                </div>
+
+                                <h6 class="fw-bold text-primary mt-3 mb-3 border-bottom pb-2">بيانات الزوجات والأبناء
+                                </h6>
+
+                                <!-- Wives Section -->
+                                <div class="mb-4">
+                                    <div class="d-flex justify-content-between align-items-center mb-2">
+                                        <label class="form-label fw-bold small text-secondary mb-0">بيانات الزوجة /
+                                            الزوجات</label>
+                                        <button type="button" class="btn btn-sm btn-outline-primary"
+                                            onclick="addWife()">
+                                            <i class="fas fa-plus me-1"></i> إضافة زوجة
+                                        </button>
+                                    </div>
+                                    <div id="wivesContainer"></div>
+                                </div>
+
+                                <!-- Children Section -->
+                                <div class="mb-4">
+                                    <div class="d-flex justify-content-between align-items-center mb-2">
+                                        <label class="form-label fw-bold small text-secondary mb-0">بيانات
+                                            الأبناء</label>
+                                        <button type="button" class="btn btn-sm btn-outline-primary"
+                                            onclick="addChild()">
+                                            <i class="fas fa-plus me-1"></i> إضافة ابن/ابنة
+                                        </button>
+                                    </div>
+                                    <div id="childrenContainer"></div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="d-flex justify-content-end gap-2 mt-4 pt-3 border-top">
+                            <button type="button" class="btn btn-light" onclick="history.back()">إلغاء</button>
+                            <button type="submit" class="btn btn-primary-custom px-5">متابعة للدفع</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="script.js"></script>
+    <script>
+        function toggleCertificateNumber() {
+            const requestType = document.getElementById('requestType').value;
+            const certGroup = document.getElementById('certificateNumberGroup');
+            certGroup.style.display = (requestType !== 'new') ? 'block' : 'none';
+        }
+
+        let wifeCount = 0;
+        let childCount = 0;
+
+        function addWife() {
+            if (wifeCount >= 4) { alert('الحد الأقصى للزوجات هو 4'); return; }
+            wifeCount++;
+            const container = document.getElementById('wivesContainer');
+            const id = 'wife-' + Date.now();
+            const html = `
+                <div class="card p-3 mb-2 bg-white border" id="${id}">
+                    <div class="d-flex justify-content-between mb-2">
+                        <span class="fw-bold small text-secondary">الزوجة ${wifeCount}</span>
+                        ${wifeCount > 1 ? `<button type="button" class="btn btn-sm text-danger p-0" onclick="removeElement('${id}', 'wife')"><i class="fas fa-trash-alt"></i> حذف</button>` : ''}
+                    </div>
+                    <div class="row g-2">
+                        <div class="col-md-4">
+                            <label class="form-label small text-muted">الاسم الكامل للزوجة</label>
+                            <input type="text" class="form-control form-control-sm" placeholder="الاسم الكامل">
+                        </div>
+                        <div class="col-md-4">
+                            <label class="form-label small text-muted">رقم الهوية</label>
+                            <input type="text" class="form-control form-control-sm" placeholder="رقم الهوية">
+                        </div>
+                        <div class="col-md-4">
+                            <label class="form-label small text-muted">الجنسية</label>
+                            <input type="text" class="form-control form-control-sm" placeholder="الجنسية" value="يمنية">
+                        </div>
+                    </div>
+                </div>`;
+            container.insertAdjacentHTML('beforeend', html);
+        }
+
+        function addChild() {
+            if (childCount >= 20) { alert('الحد الأقصى للأبناء هو 20'); return; }
+            childCount++;
+            const container = document.getElementById('childrenContainer');
+            const id = 'child-' + Date.now();
+            const html = `
+                <div class="card p-3 mb-2 bg-white border" id="${id}">
+                    <div class="d-flex justify-content-between mb-2">
+                        <span class="fw-bold small text-secondary">الابن / الابنة</span>
+                        <button type="button" class="btn btn-sm text-danger p-0" onclick="removeElement('${id}', 'child')"><i class="fas fa-trash-alt"></i> حذف</button>
+                    </div>
+                    <div class="row g-2">
+                        <div class="col-md-3">
+                            <label class="form-label small text-muted">الاسم الأول</label>
+                            <input type="text" class="form-control form-control-sm" placeholder="الاسم الأول">
+                        </div>
+                        <div class="col-md-3">
+                            <label class="form-label small text-muted">رقم الهوية</label>
+                            <input type="text" class="form-control form-control-sm" placeholder="رقم الهوية">
+                        </div>
+                        <div class="col-md-3">
+                            <label class="form-label small text-muted">النوع</label>
+                            <select class="form-select form-select-sm"><option>ذكر</option><option>أنثى</option></select>
+                        </div>
+                        <div class="col-md-3">
+                            <label class="form-label small text-muted">تاريخ الميلاد</label>
+                            <input type="date" class="form-control form-control-sm">
+                        </div>
+                    </div>
+                </div>`;
+            container.insertAdjacentHTML('beforeend', html);
+        }
+
+        function removeElement(id, type) {
+            document.getElementById(id).remove();
+            if (type === 'wife') wifeCount--;
+            if (type === 'child') childCount--;
+        }
+
+        document.addEventListener('DOMContentLoaded', function () {
+            addWife();
+            addChild();
+        });
+    </script>
+</body>
+
+</html>

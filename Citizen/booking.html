@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>حجز موعد | بوابة المواطن</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.rtl.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .time-slot {
+            border: 1px solid #e0e0e0;
+            border-radius: 8px;
+            padding: 10px;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.2s;
+            background-color: #fff;
+        }
+
+        .time-slot:hover {
+            border-color: var(--primary-color);
+            color: var(--primary-color);
+        }
+
+        .time-slot.active {
+            background-color: var(--primary-color);
+            color: white;
+            border-color: var(--primary-color);
+        }
+
+        .time-slot.disabled {
+            background-color: #f8f9fa;
+            color: #adb5bd;
+            cursor: not-allowed;
+            border-color: #f8f9fa;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="sidebar" id="sidebar">
+        <!-- Sidebar content same as others -->
+        <div class="sidebar-brand">
+            <i class="fas fa-landmark"></i>
+            <span>بوابة المواطن</span>
+        </div>
+        <ul class="sidebar-menu">
+            <li><a href="dashboard.html"><i class="fas fa-home"></i> لوحة التحكم</a></li>
+            <li><a href="profile.html"><i class="fas fa-user"></i> الملف الشخصي</a></li>
+            <li><a href="services.html"><i class="fas fa-concierge-bell"></i> الخدمات الإلكترونية</a></li>
+            <li><a href="my_requests.html"><i class="fas fa-file-alt"></i> طلباتي</a></li>
+            <li><a href="booking.html" class="active"><i class="fas fa-calendar-check"></i> حجز موعد</a></li>
+            <li><a href="notifications.html"><i class="fas fa-bell"></i> الإشعارات</a></li>
+            <li><a href="complaints.html"><i class="fas fa-exclamation-circle"></i> الشكاوى والمقترحات</a></li>
+            <li><a href="#" class="text-danger"><i class="fas fa-sign-out-alt"></i> تسجيل خروج</a></li>
+        </ul>
+    </div>
+
+    <div class="main-content">
+        <div class="d-flex justify-content-between align-items-center mb-4">
+            <div class="d-flex align-items-center">
+                <i class="fas fa-bars menu-toggle me-3" onclick="toggleSidebar()"></i>
+                <h4 class="m-0 fw-bold">حجز موعد جديد</h4>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-lg-8">
+                <div class="custom-card mb-4">
+                    <h5 class="fw-bold mb-4 border-bottom pb-3">تفاصيل الموعد</h5>
+
+                    <form>
+                        <div class="row g-3 mb-4">
+                            <div class="col-md-6">
+                                <label class="form-label fw-medium mb-2">نوع الهوية</label>
+                                <select class="form-select form-control-custom">
+                                    <option value="" selected disabled>اختر نوع الهوية</option>
+                                    <option value="national_id">بطاقة شخصية</option>
+                                    <option value="passport">جواز سفر</option>
+                                </select>
+                            </div>
+                            <div class="col-md-6">
+                                <label class="form-label fw-medium mb-2">رقم المعاملة</label>
+                                <input type="text" class="form-control form-control-custom"
+                                    placeholder="أدخل رقم المعاملة">
+                            </div>
+                        </div>
+
+                        <div class="mb-4">
+                            <label class="form-label fw-medium mb-2">اختر التاريخ</label>
+                            <input type="date" class="form-control form-control-custom">
+                        </div>
+
+                        <div class="mb-4">
+                            <label class="form-label fw-medium mb-3">اختر الوقت المناسب</label>
+                            <div class="row g-3">
+                                <div class="col-4 col-sm-3 col-md-2">
+                                    <div class="time-slot" onclick="selectTime(this)">08:00 ص</div>
+                                </div>
+                                <div class="col-4 col-sm-3 col-md-2">
+                                    <div class="time-slot" onclick="selectTime(this)">08:30 ص</div>
+                                </div>
+                                <div class="col-4 col-sm-3 col-md-2">
+                                    <div class="time-slot" onclick="selectTime(this)">09:00 ص</div>
+                                </div>
+                                <div class="col-4 col-sm-3 col-md-2">
+                                    <div class="time-slot" onclick="selectTime(this)">09:30 ص</div>
+                                </div>
+                                <div class="col-4 col-sm-3 col-md-2">
+                                    <div class="time-slot" onclick="selectTime(this)">10:00 ص</div>
+                                </div>
+                                <div class="col-4 col-sm-3 col-md-2">
+                                    <div class="time-slot" onclick="selectTime(this)">10:30 ص</div>
+                                </div>
+                                <div class="col-4 col-sm-3 col-md-2">
+                                    <div class="time-slot" onclick="selectTime(this)">11:00 ص</div>
+                                </div>
+                                <div class="col-4 col-sm-3 col-md-2">
+                                    <div class="time-slot" onclick="selectTime(this)">11:30 ص</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="mb-4">
+                            <label class="form-label fw-medium">سبب الزيارة</label>
+                            <textarea class="form-control form-control-custom" rows="2"
+                                placeholder="اكتب وصفاً مختصراً لسبب الزيارة..."></textarea>
+                        </div>
+
+                        <div class="d-flex justify-content-end">
+                            <button type="button" class="btn btn-primary-custom px-5" data-bs-toggle="modal"
+                                data-bs-target="#confirmModal">تأكيد الموعد</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+            <!-- Guidelines Sidebar -->
+            <div class="col-lg-4">
+                <div class="custom-card bg-info-subtle border-0">
+                    <h6 class="fw-bold mb-3 text-info-emphasis"><i class="fas fa-info-circle me-2"></i>تعليمات هامة</h6>
+                    <ul class="list-unstyled text-muted small" style="line-height: 1.8;">
+                        <li class="mb-2"><i class="fas fa-check text-success me-2 ms-0"></i> يرجى الحضور قبل الموعد بـ
+                            15 دقيقة.</li>
+                        <li class="mb-2"><i class="fas fa-check text-success me-2 ms-0"></i> إحضار الهوية الوطنية
+                            الأصلية.</li>
+                        <li class="mb-2"><i class="fas fa-check text-success me-2 ms-0"></i> طباعة تذكرة الموعد أو
+                            إظهارها من الجوال.</li>
+                        <li><i class="fas fa-check text-success me-2 ms-0"></i> في حال عدم الحضور سيتم إلغاء الموعد
+                            تلقائياً.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Confirm Modal -->
+    <div class="modal fade" id="confirmModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header border-0">
+                    <h5 class="modal-title fw-bold">تأكيد الحجز</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <p class="text-muted">هل أنت متأكد من رغبتك في حجز الموعد بالتفاصيل التالية؟</p>
+                    <div class="bg-light p-3 rounded mb-3">
+
+                        <div class="d-flex justify-content-between mb-2">
+                            <span>التاريخ:</span>
+                            <span class="fw-bold">15/10/2023</span>
+                        </div>
+                        <div class="d-flex justify-content-between">
+                            <span>الوقت:</span>
+                            <span class="fw-bold">09:30 ص</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer border-0">
+                    <button type="button" class="btn btn-light" data-bs-dismiss="modal">تراجع</button>
+                    <button type="button" class="btn btn-primary-custom"
+                        onclick="window.location.href='dashboard.html'">نعم، احجز الآن</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="script.js"></script>
+    <script>
+        function selectTime(el) {
+            document.querySelectorAll('.time-slot').forEach(e => {
+                if (!e.classList.contains('disabled')) e.classList.remove('active');
+            });
+            if (!el.classList.contains('disabled')) el.classList.add('active');
+        }
+    </script>
+</body>
+
+</html>

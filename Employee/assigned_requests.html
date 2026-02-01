@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>الطلبات الموكلة - لوحة الموظف</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.rtl.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+    <!-- Sidebar -->
+    <div class="sidebar">
+        <div class="sidebar-header">
+            <i class="fas fa-user-tie fa-2x text-primary"></i>
+            <span class="sidebar-brand">لوحة الموظف</span>
+        </div>
+        <ul class="sidebar-menu">
+            <li><a href="index.html"><i class="fas fa-home"></i> الرئيسية</a></li>
+            <li><a href="assigned_requests.html" class="active"><i class="fas fa-tasks"></i> الطلبات الموكلة</a></li>
+            <li><a href="appointments.html"><i class="fas fa-calendar-alt"></i> إدارة المواعيد</a></li>
+            <li><a href="document_issuance.html"><i class="fas fa-file-export"></i> إصدار الوثائق</a></li>
+            <li><a href="complaints.html"><i class="fas fa-exclamation-circle"></i> الشكاوى</a></li>
+        </ul>
+    </div>
+
+    <!-- Main Content -->
+    <div class="main-content">
+        <div class="top-navbar">
+            <h4 class="m-0 fw-bold">الطلبات الموكلة</h4>
+            <div class="d-flex align-items-center gap-3">
+                <img src="https://ui-avatars.com/api/?name=Employee+User&background=315d8e&color=fff"
+                    class="rounded-circle" width="35" height="35">
+            </div>
+        </div>
+
+        <div class="custom-card mb-4 animated-fade-in">
+            <div class="row g-3 align-items-end">
+                <div class="col-md-4">
+                    <label class="form-label">بحث</label>
+                    <div class="search-wrapper">
+                        <i class="fas fa-search"></i>
+                        <input type="text" class="form-control" placeholder="رقم الطلب، اسم المواطن...">
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <label class="form-label">الحالة</label>
+                    <select class="form-select">
+                        <option value="">الكل</option>
+                        <option value="pending">قيد الانتظار</option>
+                        <option value="processing">قيد المعالجة</option>
+                        <option value="completed">مكتمل</option>
+                    </select>
+                </div>
+                <div class="col-md-3">
+                    <label class="form-label">نوع الخدمة</label>
+                    <select class="form-select">
+                        <option value="">الكل</option>
+                        <option value="id">بطاقة هوية</option>
+                        <option value="passport">جواز سفر</option>
+                    </select>
+                </div>
+                <div class="col-md-2">
+                    <button class="btn btn-primary-custom w-100">تصفية</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="table-container animated-fade-in" style="animation-delay: 0.2s;">
+            <table class="table table-hover">
+                <thead>
+                    <tr>
+                        <th>رقم الطلب <i class="fas fa-sort ms-1" style="font-size: 0.7rem; cursor: pointer;"></i></th>
+                        <th>المواطن <i class="fas fa-sort ms-1" style="font-size: 0.7rem; cursor: pointer;"></i></th>
+                        <th>نوع الخدمة</th>
+                        <th>تاريخ التقديم <i class="fas fa-sort ms-1" style="font-size: 0.7rem; cursor: pointer;"></i>
+                        </th>
+                        <th>الحالة</th>
+                        <th class="text-center">الإجراء</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="fw-bold">#REQ-1001</td>
+                        <td>محمد عبدالرحمن العلي</td>
+                        <td>تجديد بطاقة هوية</td>
+                        <td>2024-05-18</td>
+                        <td><span class="status-badge bg-pending">قيد الانتظار</span></td>
+                        <td class="text-center">
+                            <a href="review_request.html" class="btn btn-sm btn-outline-primary"><i
+                                    class="fas fa-eye me-1"></i> فتح</a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="fw-bold">#REQ-1002</td>
+                        <td>خالد يوسف المحمد</td>
+                        <td>إصدار جواز سفر</td>
+                        <td>2024-05-18</td>
+                        <td><span class="status-badge bg-processing">قيد المعالجة</span></td>
+                        <td class="text-center">
+                            <a href="review_request.html" class="btn btn-sm btn-outline-primary"><i
+                                    class="fas fa-eye me-1"></i> فتح</a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="fw-bold">#REQ-1003</td>
+                        <td>سارة أحمد الراشد</td>
+                        <td>شهادة ميلاد بدل فاقد</td>
+                        <td>2024-05-17</td>
+                        <td><span class="status-badge bg-approved">مكتمل</span></td>
+                        <td class="text-center">
+                            <a href="review_request.html" class="btn btn-sm btn-outline-primary"><i
+                                    class="fas fa-eye me-1"></i> فتح</a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="fw-bold">#REQ-1004</td>
+                        <td>عبدالله حسن الفهد</td>
+                        <td>تسجيل زواج</td>
+                        <td>2024-05-17</td>
+                        <td><span class="status-badge bg-rejected">مرفوض</span></td>
+                        <td class="text-center">
+                            <a href="review_request.html" class="btn btn-sm btn-outline-primary"><i
+                                    class="fas fa-eye me-1"></i> فتح</a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <div class="px-4 py-3 bg-light border-top d-flex justify-content-between align-items-center">
+                <div class="text-muted" style="font-size: 0.85rem;">عرض 1 إلى 4 من أصل 24 طلب</div>
+                <nav>
+                    <ul class="pagination pagination-sm m-0">
+                        <li class="page-item disabled"><a class="page-link" href="#">السابق</a></li>
+                        <li class="page-item active"><a class="page-link" href="#">1</a></li>
+                        <li class="page-item"><a class="page-link" href="#">2</a></li>
+                        <li class="page-item"><a class="page-link" href="#">3</a></li>
+                        <li class="page-item"><a class="page-link" href="#">التالي</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>

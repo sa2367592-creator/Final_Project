@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>إصدار الوثائق - لوحة الموظف</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.rtl.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+    <div class="sidebar">
+        <div class="sidebar-header">
+            <i class="fas fa-user-tie fa-2x text-primary"></i>
+            <span class="sidebar-brand">لوحة الموظف</span>
+        </div>
+        <ul class="sidebar-menu">
+            <li><a href="index.html"><i class="fas fa-home"></i> الرئيسية</a></li>
+            <li><a href="assigned_requests.html"><i class="fas fa-tasks"></i> الطلبات الموكلة</a></li>
+            <li><a href="appointments.html"><i class="fas fa-calendar-alt"></i> إدارة المواعيد</a></li>
+            <li><a href="document_issuance.html" class="active"><i class="fas fa-file-export"></i> إصدار الوثائق</a>
+            </li>
+            <li><a href="complaints.html"><i class="fas fa-exclamation-circle"></i> الشكاوى</a></li>
+        </ul>
+    </div>
+
+    <div class="main-content">
+        <div class="top-navbar">
+            <h4 class="m-0 fw-bold">إصدار وثائق رسمية</h4>
+            <div class="d-flex align-items-center gap-3">
+                <img src="https://ui-avatars.com/api/?name=Employee+User&background=315d8e&color=fff"
+                    class="rounded-circle" width="35" height="35">
+            </div>
+        </div>
+
+        <div class="row justify-content-center">
+            <div class="col-lg-8">
+                <div class="custom-card animated-fade-in">
+                    <div class="text-center mb-4">
+                        <div class="bg-primary-subtle text-primary rounded-circle d-inline-flex p-3 mb-3">
+                            <i class="fas fa-print fa-2x"></i>
+                        </div>
+                        <h5 class="fw-bold">نموذج إصدار وثيقة جديدة</h5>
+                        <p class="text-muted small">يرجى التحقق من بيانات المواطن قبل الضغط على زر الإصدار النهائي</p>
+                    </div>
+
+                    <form>
+                        <div class="row g-4">
+                            <div class="col-md-12">
+                                <label class="form-label">رقم الطلب المعتمد</label>
+                                <div class="input-group">
+                                    <input type="text" class="form-control"
+                                        placeholder="أدخل رقم الطلب للبحث عن البيانات...">
+                                    <button class="btn btn-primary" type="button"><i class="fas fa-search me-1"></i>
+                                        تحميل البيانات</button>
+                                </div>
+                            </div>
+
+                            <div class="col-md-6 text-end">
+                                <label class="text-muted small">اسم المواطن</label>
+                                <div class="fw-bold fs-5">خالد بن منصور العليان</div>
+                            </div>
+                            <div class="col-md-6 text-end">
+                                <label class="text-muted small">رقم الهوية</label>
+                                <div class="fw-bold fs-5">1102938475</div>
+                            </div>
+
+                            <div class="col-md-12">
+                                <label class="form-label">نوع الوثيقة المراد إصدارها</label>
+                                <select class="form-select">
+                                    <option value="">اختر الوثيقة...</option>
+                                    <option value="id_card" selected>هوية وطنية مجددة</option>
+                                    <option value="passport">جواز سفر إلكتروني</option>
+                                    <option value="birth_cert">شهادة ميلاد رسمية</option>
+                                    <option value="family_card">سجل الأسرة</option>
+                                </select>
+                            </div>
+
+                            <div class="col-md-12">
+                                <label class="form-label">رقم مرجع الوثيقة (تلقائي)</label>
+                                <input type="text" class="form-control" value="DOC-2024-XP-9003" readonly
+                                    style="background-color: #f8fafc;">
+                            </div>
+
+                            <div class="col-md-12">
+                                <div class="form-check form-switch mb-3">
+                                    <input class="form-check-input" type="checkbox" id="confirmPrint" checked>
+                                    <label class="form-check-label" for="confirmPrint">تأكيد الطباعة الفعلية بعد
+                                        الإصدار</label>
+                                </div>
+                            </div>
+
+                            <div class="col-md-12">
+                                <button type="button" class="btn btn-primary-custom w-100 py-3 fs-5"
+                                    onclick="alert('جاري إصدار الوثيقة رقم DOC-2024-XP-9003...')">
+                                    <i class="fas fa-cog fa-spin me-2" style="display: none;"></i>
+                                    تأكيد وإصدار الوثيقة
+                                </button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+
+                <div class="mt-4 p-3 bg-white border rounded-3 d-flex align-items-center gap-3 animated-fade-in"
+                    style="animation-delay: 0.2s;">
+                    <div class="bg-info-subtle text-info p-2 rounded">
+                        <i class="fas fa-history"></i>
+                    </div>
+                    <div>
+                        <div class="small fw-bold">آخر وثيقة صدرت</div>
+                        <div class="text-muted smallest">سارة القحطاني | هويه وطنية | 2024-05-30 09:15 ص</div>
+                    </div>
+                    <button class="btn btn-sm btn-link ms-auto text-decoration-none">إعادة طباعة</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>

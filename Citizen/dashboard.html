@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>لوحة التحكم | بوابة المواطن</title>
+    <!-- Bootstrap 5 RTL -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.rtl.min.css">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- Sidebar -->
+    <div class="sidebar" id="sidebar">
+        <div class="sidebar-brand">
+            <i class="fas fa-landmark"></i>
+            <span>بوابة المواطن</span>
+        </div>
+        <ul class="sidebar-menu">
+            <li><a href="dashboard.html" class="active"><i class="fas fa-home"></i> لوحة التحكم</a></li>
+            <li><a href="profile.html"><i class="fas fa-user"></i> الملف الشخصي</a></li>
+            <li><a href="services.html"><i class="fas fa-concierge-bell"></i> الخدمات الإلكترونية</a></li>
+            <li><a href="my_requests.html"><i class="fas fa-file-alt"></i> طلباتي</a></li>
+            <li><a href="booking.html"><i class="fas fa-calendar-check"></i> حجز موعد</a></li>
+            <li><a href="notifications.html"><i class="fas fa-bell"></i> الإشعارات</a></li>
+            <li><a href="complaints.html"><i class="fas fa-exclamation-circle"></i> الشكاوى والمقترحات</a></li>
+            <li><a href="#" class="text-danger"><i class="fas fa-sign-out-alt"></i> تسجيل خروج</a></li>
+        </ul>
+    </div>
+
+    <!-- Main Content -->
+    <div class="main-content">
+        <!-- Header/Navbar for Mobile Toggle -->
+        <div class="d-flex justify-content-between align-items-center mb-4">
+            <div class="d-flex align-items-center">
+                <i class="fas fa-bars menu-toggle me-3" onclick="toggleSidebar()"></i>
+                <h4 class="m-0 fw-bold">لوحة التحكم</h4>
+            </div>
+            <div class="d-flex align-items-center gap-3">
+                <div class="dropdown">
+                    <button class="btn btn-light position-relative rounded-circle" type="button"
+                        data-bs-toggle="dropdown">
+                        <i class="fas fa-bell text-muted"></i>
+                        <span
+                            class="position-absolute top-0 start-100 translate-middle p-1 bg-danger border border-light rounded-circle"></span>
+                    </button>
+                    <ul class="dropdown-menu dropdown-menu-end p-2" style="width: 300px;">
+                        <li>
+                            <h6 class="dropdown-header">آخر الإشعارات</h6>
+                        </li>
+                        <li>
+                            <hr class="dropdown-divider">
+                        </li>
+                        <!-- Notification Item -->
+                        <li>
+                            <a class="dropdown-item d-flex gap-2 align-items-start" href="#">
+                                <div class="text-primary"><i class="fas fa-check-circle"></i></div>
+                                <div>
+                                    <small class="d-block text-wrap">تم الموافقة على طلب تجديد الهوية</small>
+                                    <small class="text-muted" style="font-size: 0.7rem;">منذ 2 ساعة</small>
+                                </div>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <img src="https://ui-avatars.com/api/?name=User+Name&background=5e6ad2&color=fff" class="rounded-circle"
+                    width="40" height="40" alt="User">
+            </div>
+        </div>
+
+        <!-- Dashboard Widgets -->
+        <div class="row g-4 mb-4">
+            <!-- Total Requests -->
+            <div class="col-md-4">
+                <div class="custom-card d-flex align-items-center">
+                    <div class="card-icon">
+                        <i class="fas fa-file-invoice"></i>
+                    </div>
+                    <div>
+                        <div class="stat-value">12</div>
+                        <div class="stat-label">إجمالي الطلبات</div>
+                    </div>
+                </div>
+            </div>
+            <!-- Active Requests -->
+            <div class="col-md-4">
+                <div class="custom-card d-flex align-items-center">
+                    <div class="card-icon"
+                        style="background-color: rgba(252, 163, 17, 0.1); color: var(--warning-color);">
+                        <i class="fas fa-clock"></i>
+                    </div>
+                    <div>
+                        <div class="stat-value">3</div>
+                        <div class="stat-label">طلبات قيد المعالجة</div>
+                    </div>
+                </div>
+            </div>
+            <!-- Upcoming Appointments -->
+            <div class="col-md-4">
+                <div class="custom-card d-flex align-items-center">
+                    <div class="card-icon"
+                        style="background-color: rgba(46, 184, 114, 0.1); color: var(--success-color);">
+                        <i class="fas fa-calendar-alt"></i>
+                    </div>
+                    <div>
+                        <div class="stat-value">1</div>
+                        <div class="stat-label">المواعيد القادمة</div>
+                        <small class="text-success d-block mt-1" style="font-size: 0.8rem;">الأحد، 15 أكتوبر 10:00
+                            ص</small>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row g-4">
+            <!-- Latest Requests & Quick Actions -->
+            <div class="col-lg-8">
+                <div class="custom-card h-100">
+                    <div class="d-flex justify-content-between align-items-center mb-4">
+                        <h5 class="fw-bold m-0">آخر النشاطات</h5>
+                        <a href="my_requests.html" class="btn btn-sm btn-outline-custom">عرض الكل</a>
+                    </div>
+
+                    <div class="table-responsive">
+                        <table class="custom-table">
+                            <thead>
+                                <tr>
+                                    <th>رقم الطلب</th>
+                                    <th>الخدمة</th>
+                                    <th>التاريخ</th>
+                                    <th>الحالة</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>#REQ-2023-001</td>
+                                    <td>تجديد جواز السفر</td>
+                                    <td>10/10/2023</td>
+                                    <td><span class="status-badge status-processing">قيد المعالجة</span></td>
+                                </tr>
+                                <tr>
+                                    <td>#REQ-2023-002</td>
+                                    <td>إصدار شهادة ميلاد</td>
+                                    <td>05/10/2023</td>
+                                    <td><span class="status-badge status-completed">مكتمل</span></td>
+                                </tr>
+                                <tr>
+                                    <td>#REQ-2023-003</td>
+                                    <td>حجز موعد أمانة</td>
+                                    <td>01/10/2023</td>
+                                    <td><span class="status-badge status-rejected">مرفوض</span></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Quick Services / Notifications -->
+            <div class="col-lg-4">
+                <div class="custom-card mb-4">
+                    <h5 class="fw-bold mb-4">خدمات سريعة</h5>
+                    <div class="d-grid gap-3">
+                        <a href="service_request.html"
+                            class="btn btn-light d-flex align-items-center justify-content-between p-3 border">
+                            <span class="d-flex align-items-center gap-3">
+                                <i class="fas fa-passport text-primary"></i> تجديد جواز
+                            </span>
+                            <i class="fas fa-chevron-left text-muted"></i>
+                        </a>
+                        <a href="service_request.html"
+                            class="btn btn-light d-flex align-items-center justify-content-between p-3 border">
+                            <span class="d-flex align-items-center gap-3">
+                                <i class="fas fa-id-card text-success"></i> تجديد هوية
+                            </span>
+                            <i class="fas fa-chevron-left text-muted"></i>
+                        </a>
+                        <a href="booking.html" class="btn btn-primary-custom text-center mt-2">
+                            حجز موعد جديد
+                        </a>
+                    </div>
+                </div>
+
+                <div class="custom-card">
+                    <h5 class="fw-bold mb-3">تنبيهات هامة</h5>
+                    <div class="notification-item">
+                        <div class="notification-icon bg-warning-subtle text-warning">
+                            <i class="fas fa-exclamation-triangle"></i>
+                        </div>
+                        <div class="notification-content">
+                            <h6>تحديث بيانات</h6>
+                            <p>يرجى تحديث بيانات الاتصال الخاصة بك للأهمية.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="script.js"></script>
+</body>
+
+</html>

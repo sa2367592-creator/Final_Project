@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>إدارة المواعيد - لوحة الموظف</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.rtl.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+    <div class="sidebar">
+        <div class="sidebar-header">
+            <i class="fas fa-user-tie fa-2x text-primary"></i>
+            <span class="sidebar-brand">لوحة الموظف</span>
+        </div>
+        <ul class="sidebar-menu">
+            <li><a href="index.html"><i class="fas fa-home"></i> الرئيسية</a></li>
+            <li><a href="assigned_requests.html"><i class="fas fa-tasks"></i> الطلبات الموكلة</a></li>
+            <li><a href="appointments.html" class="active"><i class="fas fa-calendar-alt"></i> إدارة المواعيد</a></li>
+            <li><a href="document_issuance.html"><i class="fas fa-file-export"></i> إصدار الوثائق</a></li>
+            <li><a href="complaints.html"><i class="fas fa-exclamation-circle"></i> الشكاوى</a></li>
+        </ul>
+    </div>
+
+    <div class="main-content">
+        <div class="top-navbar">
+            <h4 class="m-0 fw-bold">جدول المواعيد اليومي</h4>
+            <div class="d-flex align-items-center gap-3">
+                <input type="date" class="form-control form-control-sm" value="2024-05-30">
+            </div>
+        </div>
+
+        <!-- Appointment Summary Cards -->
+        <div class="row g-4 mb-4">
+            <div class="col-md-4">
+                <div class="custom-card py-3">
+                    <div class="d-flex align-items-center gap-3">
+                        <div class="bg-primary-subtle text-primary p-3 rounded-3">
+                            <i class="fas fa-calendar-check fa-lg"></i>
+                        </div>
+                        <div>
+                            <div class="text-muted small">إجمالي المواعيد</div>
+                            <div class="fw-bold fs-5">12 موعد</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="custom-card py-3">
+                    <div class="d-flex align-items-center gap-3">
+                        <div class="bg-success-subtle text-success p-3 rounded-3">
+                            <i class="fas fa-user-check fa-lg"></i>
+                        </div>
+                        <div>
+                            <div class="text-muted small">تم إنجازها</div>
+                            <div class="fw-bold fs-5">5 مواعيد</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="custom-card py-3">
+                    <div class="d-flex align-items-center gap-3">
+                        <div class="bg-warning-subtle text-warning p-3 rounded-3">
+                            <i class="fas fa-user-clock fa-lg"></i>
+                        </div>
+                        <div>
+                            <div class="text-muted small">قيد الانتظار اليوم</div>
+                            <div class="fw-bold fs-5">7 مواعيد</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="table-container animated-fade-in">
+            <table class="table table-hover">
+                <thead>
+                    <tr>
+                        <th>الوقت</th>
+                        <th>المواطن</th>
+                        <th>نوع الإجراء</th>
+                        <th>رقم الطلب المرتبط</th>
+                        <th>الحالة</th>
+                        <th class="text-center">الإجراء</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="fw-bold text-primary">09:00 ص</td>
+                        <td>صالح بن عبدالله القصبي</td>
+                        <td>استلام جواز السفر</td>
+                        <td>#REQ-8022</td>
+                        <td><span class="status-badge bg-approved">تم الحضور</span></td>
+                        <td class="text-center">
+                            <button class="btn btn-sm btn-light">تفاصيل</button>
+                        </td>
+                    </tr>
+                    <tr class="table-primary">
+                        <td class="fw-bold text-primary">09:30 ص</td>
+                        <td>بندر بن سلطان بن عبدالعزيز</td>
+                        <td>تبصيم الهوية الوطنية</td>
+                        <td>#REQ-8101</td>
+                        <td><span class="status-badge bg-processing">جارٍ التنفيذ</span></td>
+                        <td class="text-center">
+                            <button class="btn btn-sm btn-primary-custom">إنهاء</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="fw-bold text-primary">10:00 ص</td>
+                        <td>هند بنت محمد السديري</td>
+                        <td>مقابلة شخصية</td>
+                        <td>#REQ-8152</td>
+                        <td><span class="status-badge bg-pending">بانتظار الحضور</span></td>
+                        <td class="text-center">
+                            <button class="btn btn-sm btn-success">تسجيل حضور</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="fw-bold text-primary">10:30 ص</td>
+                        <td>فيصل بن مشعل الدوسري</td>
+                        <td>تصحيح بيانات</td>
+                        <td>#REQ-8200</td>
+                        <td><span class="status-badge bg-pending">بانتظار الحضور</span></td>
+                        <td class="text-center">
+                            <button class="btn btn-sm btn-success">تسجيل حضور</button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>

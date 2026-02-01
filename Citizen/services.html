@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>الخدمات الإلكترونية | بوابة المواطن</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.rtl.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <div class="sidebar" id="sidebar">
+        <div class="sidebar-brand">
+            <i class="fas fa-landmark"></i>
+            <span>بوابة المواطن</span>
+        </div>
+        <ul class="sidebar-menu">
+            <li><a href="dashboard.html"><i class="fas fa-home"></i> لوحة التحكم</a></li>
+            <li><a href="profile.html"><i class="fas fa-user"></i> الملف الشخصي</a></li>
+            <li><a href="services.html" class="active"><i class="fas fa-concierge-bell"></i> الخدمات الإلكترونية</a>
+            </li>
+            <li><a href="my_requests.html"><i class="fas fa-file-alt"></i> طلباتي</a></li>
+            <li><a href="booking.html"><i class="fas fa-calendar-check"></i> حجز موعد</a></li>
+            <li><a href="notifications.html"><i class="fas fa-bell"></i> الإشعارات</a></li>
+            <li><a href="complaints.html"><i class="fas fa-exclamation-circle"></i> الشكاوى والمقترحات</a></li>
+            <li><a href="#" class="text-danger"><i class="fas fa-sign-out-alt"></i> تسجيل خروج</a></li>
+        </ul>
+    </div>
+
+    <div class="main-content">
+        <div class="d-flex justify-content-between align-items-center mb-4">
+            <div class="d-flex align-items-center">
+                <i class="fas fa-bars menu-toggle me-3" onclick="toggleSidebar()"></i>
+                <h4 class="m-0 fw-bold">الخدمات الإلكترونية</h4>
+            </div>
+            <!-- Search -->
+            <div class="d-none d-md-block" style="width: 300px;">
+                <input type="text" class="form-control-custom w-100" placeholder="ابحث عن خدمة...">
+            </div>
+        </div>
+
+        <div class="row g-4">
+            <!-- Section Title: Civil Affairs -->
+            <div class="col-12">
+                <h5 class="fw-bold text-primary border-bottom pb-2">خدمات الأحوال المدنية</h5>
+            </div>
+
+            <!-- Birth Certificate -->
+            <div class="col-md-6 col-lg-4">
+                <div class="custom-card service-card">
+                    <div class="icon text-primary"><i class="fas fa-baby"></i></div>
+                    <h5 class="fw-bold mb-3">شهادة ميلاد</h5>
+                    <p class="text-muted mb-4">وثيقة رسمية تثبت واقعة الولادة وتتضمن تاريخ ومكان الميلاد.</p>
+                    <a href="birth_certificate.html" class="btn btn-primary-custom w-100">طلب الخدمة</a>
+                </div>
+            </div>
+
+            <!-- Death Certificate -->
+            <div class="col-md-6 col-lg-4">
+                <div class="custom-card service-card">
+                    <div class="icon text-secondary"><i class="fas fa-file-medical-alt"></i></div>
+                    <h5 class="fw-bold mb-3">شهادة وفاة</h5>
+                    <p class="text-muted mb-4">وثيقة رسمية تثبت واقعة الوفاة وتستخدم في الإجراءات الإدارية.</p>
+                    <a href="death_certificate.html" class="btn btn-primary-custom w-100">طلب الخدمة</a>
+                </div>
+            </div>
+
+            <!-- Family Register -->
+            <div class="col-md-6 col-lg-4">
+                <div class="custom-card service-card">
+                    <div class="icon text-success"><i class="fas fa-users"></i></div>
+                    <h5 class="fw-bold mb-3">سجل الأسرة</h5>
+                    <p class="text-muted mb-4">وثيقة تضم بيانات العائلة والزوجة والأبناء، وتستخدم للإجراءات العائلية.
+                    </p>
+                    <a href="family_register.html" class="btn btn-primary-custom w-100">طلب الخدمة</a>
+                </div>
+            </div>
+
+            <!-- National ID -->
+            <div class="col-md-6 col-lg-4">
+                <div class="custom-card service-card">
+                    <div class="icon text-info"><i class="fas fa-id-card"></i></div>
+                    <h5 class="fw-bold mb-3">الهوية الوطنية</h5>
+                    <p class="text-muted mb-4">بطاقة التعريف الرسمية للمواطن، تحتوي على الرقم الوطني والصورة والبصمة.
+                    </p>
+                    <a href="national_id.html" class="btn btn-primary-custom w-100">طلب الخدمة</a>
+                </div>
+            </div>
+
+            <!-- Certificate of Spinsterhood/Unmarried Status -->
+            <div class="col-md-6 col-lg-4">
+                <div class="custom-card service-card">
+                    <div class="icon text-warning"><i class="fas fa-file-signature"></i></div>
+                    <h5 class="fw-bold mb-3">شهادة خلو سوابق زواج</h5>
+                    <p class="text-muted mb-4">وثيقة رسمية تثبت الحالة الاجتماعية (أعزب/عزباء) وتستخدم في الإجراءات
+                        الشرعية.</p>
+                    <a href="spinsterhood_cert.html" class="btn btn-primary-custom w-100">طلب
+                        الخدمة</a>
+                </div>
+            </div>
+
+            <!-- Section Title: Passports -->
+            <div class="col-12 mt-4">
+                <h5 class="fw-bold text-primary border-bottom pb-2">خدمات الجوازات</h5>
+            </div>
+
+            <!-- Ordinary Passport -->
+            <div class="col-md-6 col-lg-4">
+                <div class="custom-card service-card">
+                    <div class="icon text-primary"><i class="fas fa-passport"></i></div>
+                    <h5 class="fw-bold mb-3">جواز سفر عادي</h5>
+                    <p class="text-muted mb-4">وثيقة سفر تمنح للمواطنين لغرض السفر الشخصي والسياحة.</p>
+                    <a href="passport_ordinary.html" class="btn btn-primary-custom w-100">طلب الخدمة</a>
+                </div>
+            </div>
+
+            <!-- Seaman's Passport -->
+            <div class="col-md-6 col-lg-4">
+                <div class="custom-card service-card">
+                    <div class="icon text-info"><i class="fas fa-anchor"></i></div>
+                    <h5 class="fw-bold mb-3">جواز سفر بحري</h5>
+                    <p class="text-muted mb-4">وثيقة سفر خاصة بالعاملين في مجال الملاحة البحرية.</p>
+                    <a href="passport_marine.html" class="btn btn-primary-custom w-100">طلب الخدمة</a>
+                </div>
+            </div>
+
+            <!-- Businessmen's Passport -->
+            <div class="col-md-6 col-lg-4">
+                <div class="custom-card service-card">
+                    <div class="icon text-dark"><i class="fas fa-briefcase"></i></div>
+                    <h5 class="fw-bold mb-3">جواز رجال أعمال</h5>
+                    <p class="text-muted mb-4">وثيقة سفر مخصصة للتجار ورجال الأعمال لتسهيل تنقلاتهم التجارية.</p>
+                    <a href="passport_business.html" class="btn btn-primary-custom w-100">طلب الخدمة</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="script.js"></script>
+</body>
+
+</html>

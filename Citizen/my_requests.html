@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>طلباتي | بوابة المواطن</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.rtl.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <div class="sidebar" id="sidebar">
+        <!-- Sidebar content same as others -->
+        <div class="sidebar-brand">
+            <i class="fas fa-landmark"></i>
+            <span>بوابة المواطن</span>
+        </div>
+        <ul class="sidebar-menu">
+            <li><a href="dashboard.html"><i class="fas fa-home"></i> لوحة التحكم</a></li>
+            <li><a href="profile.html"><i class="fas fa-user"></i> الملف الشخصي</a></li>
+            <li><a href="services.html"><i class="fas fa-concierge-bell"></i> الخدمات الإلكترونية</a></li>
+            <li><a href="my_requests.html" class="active"><i class="fas fa-file-alt"></i> طلباتي</a></li>
+            <li><a href="booking.html"><i class="fas fa-calendar-check"></i> حجز موعد</a></li>
+            <li><a href="notifications.html"><i class="fas fa-bell"></i> الإشعارات</a></li>
+            <li><a href="complaints.html"><i class="fas fa-exclamation-circle"></i> الشكاوى والمقترحات</a></li>
+            <li><a href="#" class="text-danger"><i class="fas fa-sign-out-alt"></i> تسجيل خروج</a></li>
+        </ul>
+    </div>
+
+    <div class="main-content">
+        <div class="d-flex justify-content-between align-items-center mb-4">
+            <div class="d-flex align-items-center">
+                <i class="fas fa-bars menu-toggle me-3" onclick="toggleSidebar()"></i>
+                <h4 class="m-0 fw-bold">سجل الطلبات</h4>
+            </div>
+            <div>
+                <button class="btn btn-outline-custom"><i class="fas fa-filter me-2"></i>تصفية</button>
+            </div>
+        </div>
+
+        <div class="custom-card">
+            <div class="table-responsive">
+                <table class="custom-table align-middle">
+                    <thead>
+                        <tr>
+                            <th>رقم الطلب</th>
+                            <th>نوع الخدمة</th>
+                            <th>تاريخ التقديم</th>
+                            <th>الحالة</th>
+                            <th>الإجراء</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="fw-bold">#REQ-2023-105</td>
+                            <td>تجديد جواز سفر</td>
+                            <td class="text-muted">20/10/2023</td>
+                            <td><span class="status-badge status-processing">قيد المعالجة</span></td>
+                            <td>
+                                <a href="request_details.html" class="btn btn-sm btn-light text-primary fw-medium">عرض
+                                    التفاصيل</a>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td class="fw-bold">#REQ-2023-098</td>
+                            <td>تجديد هوية وطنية</td>
+                            <td class="text-muted">15/09/2023</td>
+                            <td><span class="status-badge status-completed">مكتمل</span></td>
+                            <td>
+                                <a href="request_details.html" class="btn btn-sm btn-light text-primary fw-medium">عرض
+                                    التفاصيل</a>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td class="fw-bold">#REQ-2023-082</td>
+                            <td>تصديق وثائق</td>
+                            <td class="text-muted">01/09/2023</td>
+                            <td><span class="status-badge status-rejected">مرفوض</span></td>
+                            <td>
+                                <a href="request_details.html" class="btn btn-sm btn-light text-primary fw-medium">عرض
+                                    التفاصيل</a>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td class="fw-bold">#REQ-2023-055</td>
+                            <td>إصدار شهادة ميلاد</td>
+                            <td class="text-muted">12/08/2023</td>
+                            <td><span class="status-badge status-completed">مكتمل</span></td>
+                            <td>
+                                <a href="request_details.html" class="btn btn-sm btn-light text-primary fw-medium">عرض
+                                    التفاصيل</a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="fw-bold">#REQ-2023-040</td>
+                            <td>حجز موعد جديد</td>
+                            <td class="text-muted">05/08/2023</td>
+                            <td><span class="status-badge status-pending">معلق</span></td>
+                            <td>
+                                <a href="request_details.html" class="btn btn-sm btn-light text-primary fw-medium">عرض
+                                    التفاصيل</a>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- Pagination -->
+            <nav class="mt-4">
+                <ul class="pagination justify-content-center">
+                    <li class="page-item disabled"><a class="page-link" href="#">السابق</a></li>
+                    <li class="page-item active"><a class="page-link" href="#">1</a></li>
+                    <li class="page-item"><a class="page-link" href="#">2</a></li>
+                    <li class="page-item"><a class="page-link" href="#">3</a></li>
+                    <li class="page-item"><a class="page-link" href="#">التالي</a></li>
+                </ul>
+            </nav>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="script.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>تسجيل حساب جديد - البوابة الوطنية الموحدة</title>
+    <!-- Bootstrap RTL CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.rtl.min.css">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="assets/css/register.css">
+</head>
+
+<body>
+
+    <div class="container main-container register-container">
+
+        <div class="logo-container">
+            <img src="assets/images/logo.png" alt="شعار الجهة الحكومية" class="logo-img" style="width: 80px;">
+            <h2 class="system-name h4">إنشاء حساب مواطن جديد</h2>
+        </div>
+
+        <!-- Progress Bar -->
+        <div class="progress mb-4">
+            <div class="progress-bar" role="progressbar" style="width: 33%" aria-valuenow="33" aria-valuemin="0"
+                aria-valuemax="100"></div>
+        </div>
+
+        <form action="#" method="POST">
+
+            <!-- Section 1: Identification -->
+            <div class="custom-card register-card mb-4" style="max-width: 100%;">
+                <h5 class="section-title"><i class="far fa-id-card me-2"></i>بيانات الهوية</h5>
+                <div class="row g-3">
+                    <div class="col-md-6">
+                        <label for="idNumber" class="form-label">رقم الهوية الوطنية <span
+                                class="text-danger">*</span></label>
+                        <input type="text" class="form-control" id="idNumber"
+                            placeholder="أدخل رقم الهوية المكون من 10 خانات" required>
+                    </div>
+                    <div class="col-md-6">
+                        <label for="passportNumber" class="form-label">رقم الجواز <span
+                                class="text-muted">(اختياري)</span></label>
+                        <input type="text" class="form-control" id="passportNumber"
+                            placeholder="أدخل رقم الجواز إن وجد">
+                    </div>
+                    <div class="col-12">
+                        <label for="fullName" class="form-label">الاسم الرباعي <span
+                                class="text-danger">*</span></label>
+                        <input type="text" class="form-control" id="fullName" placeholder="الاسم كما هو في الهوية"
+                            required>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Section 2: Contact Info -->
+            <div class="custom-card register-card mb-4" style="max-width: 100%;">
+                <h5 class="section-title"><i class="far fa-envelope me-2"></i>بيانات التواصل</h5>
+                <div class="row g-3">
+                    <div class="col-md-6">
+                        <label for="email" class="form-label">البريد الإلكتروني <span
+                                class="text-danger">*</span></label>
+                        <input type="email" class="form-control" id="email" placeholder="name@example.com" required>
+                    </div>
+                    <div class="col-md-6">
+                        <label for="phone" class="form-label">رقم الجوال <span class="text-danger">*</span></label>
+                        <div class="input-group" dir="ltr">
+                            <span class="input-group-text">+966</span>
+                            <input type="tel" class="form-control text-end" id="phone" placeholder="5xxxxxxxx" required>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Section 3: Security -->
+            <div class="custom-card register-card mb-4" style="max-width: 100%;">
+                <h5 class="section-title"><i class="fas fa-shield-alt me-2"></i>أمان الحساب</h5>
+                <div class="row g-3">
+                    <div class="col-md-6">
+                        <label for="password" class="form-label">كلمة المرور <span class="text-danger">*</span></label>
+                        <input type="password" class="form-control" id="password" required>
+                        <div class="form-text">يجب أن تحتوي على 8 خانات، حرف كبير، ورقم.</div>
+                    </div>
+                    <div class="col-md-6">
+                        <label for="confirmPassword" class="form-label">تأكيد كلمة المرور <span
+                                class="text-danger">*</span></label>
+                        <input type="password" class="form-control" id="confirmPassword" required>
+                    </div>
+                </div>
+            </div>
+
+            <div class="d-grid gap-2 d-md-flex justify-content-md-between align-items-center">
+                <a href="index.html" class="text-decoration-none text-muted"> <i class="fas fa-arrow-right me-1"></i>
+                    العودة للدخول</a>
+                <button type="submit" class="btn btn-primary px-5 mt-0" style="width: auto;">
+                    إنشاء الحساب <i class="fas fa-check-circle me-2"></i>
+                </button>
+            </div>
+
+        </form>
+
+        <footer class="mt-5 text-center text-muted small">
+            &copy; 2024 جميع الحقوق محفوظة - البوابة الوطنية الموحدة
+        </footer>
+
+    </div>
+
+    <!-- OTP Verify Modal -->
+    <div class="modal fade" id="otpModal" tabindex="-1" aria-hidden="true" data-bs-backdrop="static">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">التحقق من رقم الجوال</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body text-center p-4">
+                    <div class="mb-4">
+                        <i class="fas fa-mobile-alt fa-3x text-primary mb-3"></i>
+                        <p class="text-muted mb-1">تم إرسال رمز التحقق إلى جوالك</p>
+                        <strong dir="ltr" id="displayPhone">*******</strong>
+                    </div>
+
+                    <form id="otpForm">
+                        <div class="mb-4">
+                            <input type="text" class="form-control otp-input" maxlength="4" placeholder="____" required
+                                autocomplete="one-time-code" inputmode="numeric">
+                        </div>
+
+                        <button type="submit" class="btn btn-primary w-100 mb-3">تحقق الآن</button>
+                    </form>
+
+                    <div class="d-flex justify-content-between align-items-center small mt-3">
+                        <span class="text-muted">لم يصلك الرمز؟</span>
+                        <a href="#" class="text-decoration-none fw-bold" id="resendLink">إعادة إرسال (<span
+                                id="timer">02:00</span>)</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Progress Bar Logic
+        const inputs = document.querySelectorAll('input');
+        const progressBar = document.querySelector('.progress-bar');
+
+        inputs.forEach((input, index) => {
+            input.addEventListener('focus', () => {
+                const progress = ((index + 1) / inputs.length) * 100;
+                progressBar.style.width = `${progress}%`;
+                progressBar.setAttribute('aria-valuenow', progress);
+            });
+        });
+
+        // OTP Logic
+        const registerForm = document.querySelector('form[action="#"]');
+        const otpModal = new bootstrap.Modal(document.getElementById('otpModal'));
+        const otpForm = document.getElementById('otpForm');
+        const resendLink = document.getElementById('resendLink');
+        let countdown;
+
+        registerForm.addEventListener('submit', function (e) {
+            e.preventDefault();
+            // In a real app, you would validate server-side here first
+
+            const phoneVal = document.getElementById('phone').value;
+            if (phoneVal) {
+                document.getElementById('displayPhone').innerText = "+966 " + phoneVal;
+            }
+
+            otpModal.show();
+            startTimer(120); // 2 minutes
+        });
+
+        otpForm.addEventListener('submit', function (e) {
+            e.preventDefault();
+            const otpValue = this.querySelector('input').value;
+            if (otpValue.length >= 4) {
+                // Simulate success
+                const btn = this.querySelector('button');
+                btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> جاري التحقق...';
+                btn.disabled = true;
+
+                setTimeout(() => {
+                    alert('تم إنشاء الحساب بنجاح!');
+                    window.location.href = 'index.html';
+                }, 1500);
+            }
+        });
+
+        function startTimer(duration) {
+            let timer = duration, minutes, seconds;
+            clearInterval(countdown);
+            // Reset link state
+            resendLink.classList.add('disabled', 'text-muted');
+            resendLink.style.pointerEvents = 'none';
+            resendLink.innerHTML = 'إعادة إرسال (<span id="timer">02:00</span>)';
+
+            countdown = setInterval(function () {
+                minutes = parseInt(timer / 60, 10);
+                seconds = parseInt(timer % 60, 10);
+
+                minutes = minutes < 10 ? "0" + minutes : minutes;
+                seconds = seconds < 10 ? "0" + seconds : seconds;
+
+                const timerDisplay = document.getElementById('timer');
+                if (timerDisplay) timerDisplay.textContent = minutes + ":" + seconds;
+
+                if (--timer < 0) {
+                    clearInterval(countdown);
+                    resendLink.classList.remove('disabled', 'text-muted');
+                    resendLink.style.pointerEvents = 'auto';
+                    resendLink.innerHTML = 'إعادة إرسال الآن';
+                    resendLink.onclick = function (e) {
+                        e.preventDefault();
+                        alert('تم إعادة إرسال الرمز');
+                        startTimer(120);
+                    };
+                }
+            }, 1000);
+        }
+    </script>
+</body>
+
+</html>

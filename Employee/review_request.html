@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>مراجعة الطلب - لوحة الموظف</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.rtl.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        .attachment-card {
+            border: 1px solid #e2e8f0;
+            border-radius: 8px;
+            padding: 12px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 10px;
+            transition: var(--transition);
+        }
+
+        .attachment-card:hover {
+            background-color: #f8fafc;
+            border-color: var(--primary-color);
+        }
+
+        .attachment-icon {
+            font-size: 1.5rem;
+            color: var(--primary-color);
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="sidebar">
+        <div class="sidebar-header">
+            <i class="fas fa-user-tie fa-2x text-primary"></i>
+            <span class="sidebar-brand">لوحة الموظف</span>
+        </div>
+        <ul class="sidebar-menu">
+            <li><a href="index.html"><i class="fas fa-home"></i> الرئيسية</a></li>
+            <li><a href="assigned_requests.html" class="active"><i class="fas fa-tasks"></i> الطلبات الموكلة</a></li>
+            <li><a href="appointments.html"><i class="fas fa-calendar-alt"></i> إدارة المواعيد</a></li>
+            <li><a href="document_issuance.html"><i class="fas fa-file-export"></i> إصدار الوثائق</a></li>
+            <li><a href="complaints.html"><i class="fas fa-exclamation-circle"></i> الشكاوى</a></li>
+        </ul>
+    </div>
+
+    <div class="main-content">
+        <div class="top-navbar">
+            <div class="d-flex align-items-center gap-2">
+                <a href="assigned_requests.html" class="btn btn-sm btn-light"><i class="fas fa-arrow-right"></i></a>
+                <h4 class="m-0 fw-bold">مراجعة الطلب #REQ-1001</h4>
+            </div>
+            <span class="status-badge bg-pending">قيد الانتظار</span>
+        </div>
+
+        <div class="row g-4">
+            <!-- Left Side: Data and Attachments -->
+            <div class="col-lg-8">
+                <!-- Citizen Data -->
+                <div class="custom-card mb-4 animated-fade-in">
+                    <h5 class="card-title"><i class="fas fa-user-circle me-2 text-primary"></i> بيانات المواطن</h5>
+                    <div class="row g-3">
+                        <div class="col-md-6">
+                            <label class="text-muted small mb-1">الاسم الكامل</label>
+                            <div class="fw-bold">محمد عبدالرحمن العلي</div>
+                        </div>
+                        <div class="col-md-6">
+                            <label class="text-muted small mb-1">رقم الهوية</label>
+                            <div class="fw-bold">1092837465</div>
+                        </div>
+                        <div class="col-md-6">
+                            <label class="text-muted small mb-1">رقم الهاتف</label>
+                            <div class="fw-bold">0501234567</div>
+                        </div>
+                        <div class="col-md-6">
+                            <label class="text-muted small mb-1">البريد الإلكتروني</label>
+                            <div class="fw-bold">m.ali@example.com</div>
+                        </div>
+                        <div class="col-md-12">
+                            <label class="text-muted small mb-1">العنوان</label>
+                            <div class="fw-bold">الرياض - حي الياسمين - شارع الملك عبدالعزيز</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Request Details -->
+                <div class="custom-card mb-4 animated-fade-in" style="animation-delay: 0.1s;">
+                    <h5 class="card-title"><i class="fas fa-file-alt me-2 text-primary"></i> تفاصيل الخدمة</h5>
+                    <div class="row g-3">
+                        <div class="col-md-6">
+                            <label class="text-muted small mb-1">نوع الخدمة</label>
+                            <div class="fw-bold">تجديد بطاقة هوية</div>
+                        </div>
+                        <div class="col-md-6">
+                            <label class="text-muted small mb-1">سبب الطلب</label>
+                            <div class="fw-bold">انتهاء الصلاحية</div>
+                        </div>
+                        <div class="col-md-12 border-top pt-3 mt-3">
+                            <h6 class="fw-bold mb-3">المرفقات</h6>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="attachment-card">
+                                        <i class="fas fa-id-card attachment-icon"></i>
+                                        <div class="flex-grow-1">
+                                            <div class="small fw-bold">صورة الهوية القديمة</div>
+                                            <div class="text-muted smallest" style="font-size: 0.75rem;">PDF, 1.2 MB
+                                            </div>
+                                        </div>
+                                        <button class="btn btn-sm btn-light"><i class="fas fa-download"></i></button>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="attachment-card">
+                                        <i class="fas fa-image attachment-icon"></i>
+                                        <div class="flex-grow-1">
+                                            <div class="small fw-bold">الصورة الشخصية</div>
+                                            <div class="text-muted smallest" style="font-size: 0.75rem;">JPG, 2.5 MB
+                                            </div>
+                                        </div>
+                                        <button class="btn btn-sm btn-light"><i class="fas fa-eye"></i></button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right Side: Actions and Decision -->
+            <div class="col-lg-4">
+                <div class="custom-card animated-fade-in" style="animation-delay: 0.2s;">
+                    <h5 class="card-title"><i class="fas fa-gavel me-2 text-primary"></i> اتخاذ قرار</h5>
+
+                    <div class="mb-4">
+                        <label class="form-label">ملاحظات المراجع</label>
+                        <textarea class="form-control" rows="5" placeholder="اكتب ملاحظاتك هنا..."></textarea>
+                    </div>
+
+                    <div class="d-grid gap-2">
+                        <button class="btn btn-success p-2">
+                            <i class="fas fa-check-circle me-2"></i> قبول الطلب
+                        </button>
+                        <button class="btn btn-danger p-2">
+                            <i class="fas fa-times-circle me-2"></i> رفض الطلب
+                        </button>
+                    </div>
+
+                    <hr class="my-4">
+
+                    <div class="alert alert-info py-2 px-3 small" style="border-radius: 8px;">
+                        <i class="fas fa-info-circle me-1"></i>
+                        بمجرد القبول، سيتم إرسال إشعار للمواطن لاستكمال الإجراءات أو استلام الوثيقة.
+                    </div>
+                </div>
+
+                <!-- Request History (Extra) -->
+                <div class="custom-card mt-4 animated-fade-in" style="animation-delay: 0.3s;">
+                    <h6 class="fw-bold mb-3">سجل الطلب</h6>
+                    <div class="small">
+                        <div class="d-flex gap-2 mb-2">
+                            <div style="width: 2px; background: #e2e8f0; margin: 5px 0;"></div>
+                            <div>
+                                <div class="fw-bold">تم تقديم الطلب</div>
+                                <div class="text-muted">2024-05-18 | 10:30 ص</div>
+                            </div>
+                        </div>
+                        <div class="d-flex gap-2">
+                            <div style="width: 2px; background: #e2e8f0; margin: 5px 0;"></div>
+                            <div>
+                                <div class="fw-bold">إحالة الطلب للموظف (أنت)</div>
+                                <div class="text-muted">2024-05-18 | 11:15 ص</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>

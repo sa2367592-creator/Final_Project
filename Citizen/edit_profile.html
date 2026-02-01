@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>تعديل الملف الشخصي | بوابة المواطن</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.rtl.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <div class="sidebar" id="sidebar">
+        <div class="sidebar-brand">
+            <i class="fas fa-landmark"></i>
+            <span>بوابة المواطن</span>
+        </div>
+        <ul class="sidebar-menu">
+            <li><a href="dashboard.html"><i class="fas fa-home"></i> لوحة التحكم</a></li>
+            <li><a href="profile.html" class="active"><i class="fas fa-user"></i> الملف الشخصي</a></li>
+            <li><a href="services.html"><i class="fas fa-concierge-bell"></i> الخدمات الإلكترونية</a></li>
+            <li><a href="my_requests.html"><i class="fas fa-file-alt"></i> طلباتي</a></li>
+            <li><a href="booking.html"><i class="fas fa-calendar-check"></i> حجز موعد</a></li>
+            <li><a href="notifications.html"><i class="fas fa-bell"></i> الإشعارات</a></li>
+            <li><a href="complaints.html"><i class="fas fa-exclamation-circle"></i> الشكاوى والمقترحات</a></li>
+            <li><a href="#" class="text-danger"><i class="fas fa-sign-out-alt"></i> تسجيل خروج</a></li>
+        </ul>
+    </div>
+
+    <div class="main-content">
+        <div class="d-flex justify-content-between align-items-center mb-4">
+            <div class="d-flex align-items-center">
+                <i class="fas fa-bars menu-toggle me-3" onclick="toggleSidebar()"></i>
+                <div class="d-flex align-items-center gap-2">
+                    <a href="profile.html" class="text-muted"><i class="fas fa-arrow-right"></i></a>
+                    <h4 class="m-0 fw-bold">تعديل الملف الشخصي</h4>
+                </div>
+            </div>
+        </div>
+
+        <div class="row justify-content-center">
+            <div class="col-lg-10">
+                <div class="custom-card">
+                    <div class="d-flex align-items-center gap-3 mb-4 border-bottom pb-3">
+                        <div class="card-icon mb-0" style="width: 50px; height: 50px; font-size: 1.2rem;">
+                            <i class="fas fa-user-edit"></i>
+                        </div>
+                        <div>
+                            <h5 class="fw-bold m-0">تحديث البيانات الشخصية</h5>
+                            <small class="text-muted">تأكد من صحة البيانات المدخلة قبل الحفظ</small>
+                        </div>
+                    </div>
+
+                    <form action="profile.html" method="GET">
+                        <div class="row g-4 text-start">
+                            <div class="col-md-6">
+                                <label class="form-label fw-bold small">الاسم الكامل</label>
+                                <input type="text" class="form-control form-control-custom" value="محمد أحمد العلي"
+                                    placeholder="الاسم الكامل">
+                            </div>
+
+                            <div class="col-md-6">
+                                <label class="form-label fw-bold small">رقم الهوية الوطنية</label>
+                                <input type="text" class="form-control form-control-custom" value="1029384756" readonly
+                                    style="background-color: #f0f0f0; cursor: not-allowed;">
+                                <small class="text-muted">لا يمكن تعديل رقم الهوية المسجل</small>
+                            </div>
+
+                            <div class="col-md-6">
+                                <label class="form-label fw-bold small">رقم الهاتف</label>
+                                <input type="tel" class="form-control form-control-custom" value="0501234567"
+                                    placeholder="رقم الهاتف">
+                            </div>
+
+                            <div class="col-md-6">
+                                <label class="form-label fw-bold small">البريد الإلكتروني</label>
+                                <input type="email" class="form-control form-control-custom"
+                                    value="mohamed.ali@example.com" placeholder="البريد الإلكتروني">
+                            </div>
+
+                            <div class="col-md-12">
+                                <h6 class="fw-bold text-primary mt-3 border-bottom pb-2">كلمة المرور</h6>
+                            </div>
+
+                            <div class="col-md-4">
+                                <label class="form-label fw-bold small">كلمة المرور الحالية</label>
+                                <input type="password" class="form-control form-control-custom" placeholder="********">
+                            </div>
+
+                            <div class="col-md-4">
+                                <label class="form-label fw-bold small">كلمة المرور الجديدة</label>
+                                <input type="password" class="form-control form-control-custom"
+                                    placeholder="أدخل كلمة المرور الجديدة">
+                            </div>
+
+                            <div class="col-md-4">
+                                <label class="form-label fw-bold small">تأكيد كلمة المرور</label>
+                                <input type="password" class="form-control form-control-custom"
+                                    placeholder="أدخل تأكيد كلمة المرور">
+                            </div>
+
+                            <div class="col-md-4">
+                                <label class="form-label fw-bold small">المحافظة</label>
+                                <select class="form-select form-control-custom governorate-select">
+                                    <option value="" selected disabled>اختر المحافظة</option>
+                                </select>
+                            </div>
+                            <div class="col-md-4">
+                                <label class="form-label fw-bold small">المديرية</label>
+                                <select class="form-select form-control-custom district-select">
+                                    <option value="" selected disabled>اختر المديرية أولاً</option>
+                                </select>
+                            </div>
+                            <div class="col-md-4">
+                                <label class="form-label fw-bold small">الدولة</label>
+                                <input type="text" class="form-control form-control-custom" value="اليمن"
+                                    placeholder="الدولة">
+                            </div>
+                        </div>
+
+                        <div class="d-flex justify-content-center gap-3 mt-5 pt-3 border-top">
+                            <button type="button" class="btn btn-outline-secondary px-5 rounded-pill"
+                                onclick="history.back()">إلغاء</button>
+                            <button type="submit" class="btn btn-primary-custom px-5 rounded-pill shadow">حفظ
+                                التغييرات</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="script.js"></script>
+</body>
+
+</html>

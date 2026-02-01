@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>الشكاوى والمقترحات | بوابة المواطن</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.rtl.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <div class="sidebar" id="sidebar">
+        <!-- Sidebar content -->
+        <div class="sidebar-brand">
+            <i class="fas fa-landmark"></i>
+            <span>بوابة المواطن</span>
+        </div>
+        <ul class="sidebar-menu">
+            <li><a href="dashboard.html"><i class="fas fa-home"></i> لوحة التحكم</a></li>
+            <li><a href="profile.html"><i class="fas fa-user"></i> الملف الشخصي</a></li>
+            <li><a href="services.html"><i class="fas fa-concierge-bell"></i> الخدمات الإلكترونية</a></li>
+            <li><a href="my_requests.html"><i class="fas fa-file-alt"></i> طلباتي</a></li>
+            <li><a href="booking.html"><i class="fas fa-calendar-check"></i> حجز موعد</a></li>
+            <li><a href="notifications.html"><i class="fas fa-bell"></i> الإشعارات</a></li>
+            <li><a href="complaints.html" class="active"><i class="fas fa-exclamation-circle"></i> الشكاوى
+                    والمقترحات</a></li>
+            <li><a href="#" class="text-danger"><i class="fas fa-sign-out-alt"></i> تسجيل خروج</a></li>
+        </ul>
+    </div>
+
+    <div class="main-content">
+        <div class="d-flex justify-content-between align-items-center mb-4">
+            <div class="d-flex align-items-center">
+                <i class="fas fa-bars menu-toggle me-3" onclick="toggleSidebar()"></i>
+                <h4 class="m-0 fw-bold">الشكاوى والمقترحات</h4>
+            </div>
+        </div>
+
+        <div class="row justify-content-center">
+            <div class="col-lg-8">
+                <div class="custom-card">
+                    <div class="d-flex align-items-center gap-3 mb-4 border-bottom pb-3">
+                        <div class="card-icon mb-0 bg-light text-secondary"
+                            style="width: 50px; height: 50px; font-size: 1.2rem;">
+                            <i class="fas fa-envelope-open-text"></i>
+                        </div>
+                        <div>
+                            <h5 class="fw-bold m-0">نموذج التواصل</h5>
+                            <small class="text-muted">نحن هنا لسماع صوتك، يرجى تعبئة النموذج أدناه.</small>
+                        </div>
+                    </div>
+
+                    <form>
+                        <div class="mb-3">
+                            <label class="form-label fw-medium">نوع الرسالة</label>
+                            <div class="d-flex gap-4">
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="msgType" id="type1" checked>
+                                    <label class="form-check-label" for="type1">شكوى</label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="msgType" id="type2">
+                                    <label class="form-check-label" for="type2">اقتراح</label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="msgType" id="type3">
+                                    <label class="form-check-label" for="type3">استفسار</label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row g-3 mb-3">
+                            <div class="col-md-4">
+                                <label class="form-label fw-medium">المحافظة</label>
+                                <select class="form-select form-control-custom governorate-select">
+                                    <option value="" selected disabled>اختر المحافظة</option>
+                                </select>
+                            </div>
+                            <div class="col-md-4">
+                                <label class="form-label fw-medium">المديرية</label>
+                                <select class="form-select form-control-custom district-select">
+                                    <option value="" selected disabled>اختر المديرية أولاً</option>
+                                </select>
+                            </div>
+                            <div class="col-md-4">
+                                <label class="form-label fw-medium">الدولة</label>
+                                <input type="text" class="form-control form-control-custom" value="اليمن"
+                                    placeholder="الدولة">
+                            </div>
+                        </div>
+
+
+                        <div class="mb-3">
+                            <label class="form-label fw-medium">عنوان الرسالة</label>
+                            <input type="text" class="form-control form-control-custom"
+                                placeholder="مثال: تأخير في إصدار رخصة">
+                        </div>
+
+                        <div class="mb-3">
+                            <label class="form-label fw-medium">نص الرسالة</label>
+                            <textarea class="form-control form-control-custom" rows="6"
+                                placeholder="اكتب تفاصيل الشكوى أو المقترح هنا..."></textarea>
+                        </div>
+
+                        <div class="mb-4">
+                            <label class="form-label fw-medium">مرفقات (اختياري)</label>
+                            <input type="file" class="form-control">
+                            <small class="text-muted">يمكنك إرفاق صور أو مستندات تدعم رسالتك.</small>
+                        </div>
+
+                        <div class="d-flex justify-content-end">
+                            <button type="submit" class="btn btn-primary-custom px-5">إرسال</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="script.js"></script>
+</body>
+
+</html>

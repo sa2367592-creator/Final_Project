@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>لوحة تحكم الموظف - بوابة الخدمات الذكية</title>
+    <!-- Bootstrap 5 CSS (RTL) -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.rtl.min.css">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <!-- Sidebar -->
+    <div class="sidebar">
+        <div class="sidebar-header">
+            <i class="fas fa-user-tie fa-2x text-primary"></i>
+            <span class="sidebar-brand">لوحة الموظف</span>
+        </div>
+        <ul class="sidebar-menu">
+            <li><a href="index.html" class="active"><i class="fas fa-home"></i> الرئيسية</a></li>
+            <li><a href="assigned_requests.html"><i class="fas fa-tasks"></i> الطلبات الموكلة</a></li>
+            <li><a href="appointments.html"><i class="fas fa-calendar-alt"></i> إدارة المواعيد</a></li>
+            <li><a href="document_issuance.html"><i class="fas fa-file-export"></i> إصدار الوثائق</a></li>
+            <li><a href="complaints.html"><i class="fas fa-exclamation-circle"></i> الشكاوى</a></li>
+            <li><hr class="dropdown-divider"></li>
+            <li><a href="#"><i class="fas fa-cog"></i> الإعدادات</a></li>
+            <li><a href="#" class="text-danger"><i class="fas fa-sign-out-alt"></i> تسجيل الخروج</a></li>
+        </ul>
+    </div>
+
+    <!-- Main Content -->
+    <div class="main-content">
+        <!-- Top Navbar -->
+        <div class="top-navbar">
+            <div class="search-wrapper">
+                <i class="fas fa-search"></i>
+                <input type="text" class="form-control" placeholder="بحث عن طلب أو مواطن...">
+            </div>
+            <div class="d-flex align-items-center gap-3">
+                <div class="dropdown">
+                    <button class="btn btn-light position-relative" id="notifDropdown" data-bs-toggle="dropdown">
+                        <i class="fas fa-bell"></i>
+                        <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">3</span>
+                    </button>
+                    <ul class="dropdown-menu dropdown-menu-end shadow border-0" style="width: 300px;">
+                        <li class="p-3 border-bottom font-weight-bold">التنبيهات</li>
+                        <li><a class="dropdown-item p-3 border-bottom" href="#">طلب جديد موكل إليك #12345</a></li>
+                        <li><a class="dropdown-item p-3 border-bottom" href="#">موعد مراجعة بعد 30 دقيقة</a></li>
+                        <li><a class="dropdown-item p-3" href="#">تم تحديث حالة الشكوى رقم #90</a></li>
+                        <li class="bg-light text-center"><a class="dropdown-item py-2" href="#">عرض الكل</a></li>
+                    </ul>
+                </div>
+                <div class="d-flex align-items-center gap-2">
+                    <img src="https://ui-avatars.com/api/?name=Employee+User&background=315d8e&color=fff" class="rounded-circle" width="40" height="40" alt="Avatar">
+                    <div class="d-none d-md-block">
+                        <div class="fw-bold" style="font-size: 0.9rem;">أحمد محمد</div>
+                        <div class="text-muted" style="font-size: 0.75rem;">موظف خدمات</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <h4 class="mb-4">نظرة عامة</h4>
+
+        <!-- Statistics -->
+        <div class="row g-4 mb-4">
+            <div class="col-md-3 animated-fade-in" style="animation-delay: 0.1s;">
+                <div class="custom-card stat-card">
+                    <div class="stat-icon bg-primary text-white">
+                        <i class="fas fa-file-invoice"></i>
+                    </div>
+                    <div class="stat-val">24</div>
+                    <div class="stat-lbl">الطلبات الجديدة</div>
+                </div>
+            </div>
+            <div class="col-md-3 animated-fade-in" style="animation-delay: 0.2s;">
+                <div class="custom-card stat-card">
+                    <div class="stat-icon bg-warning text-white">
+                        <i class="fas fa-clock"></i>
+                    </div>
+                    <div class="stat-val">8</div>
+                    <div class="stat-lbl">مواعيد اليوم</div>
+                </div>
+            </div>
+            <div class="col-md-3 animated-fade-in" style="animation-delay: 0.3s;">
+                <div class="custom-card stat-card">
+                    <div class="stat-icon bg-success text-white">
+                        <i class="fas fa-check-circle"></i>
+                    </div>
+                    <div class="stat-val">156</div>
+                    <div class="stat-lbl">طلبات مكتملة</div>
+                </div>
+            </div>
+            <div class="col-md-3 animated-fade-in" style="animation-delay: 0.4s;">
+                <div class="custom-card stat-card">
+                    <div class="stat-icon bg-info text-white">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <div class="stat-val">42</div>
+                    <div class="stat-lbl">المواطنين المسجلين</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row g-4">
+            <!-- New Requests Table -->
+            <div class="col-lg-8 animated-fade-in" style="animation-delay: 0.5s;">
+                <div class="custom-card">
+                    <div class="d-flex justify-content-between align-items-center mb-4">
+                        <h5 class="m-0 fw-bold">الطلبات الجديدة</h5>
+                        <a href="assigned_requests.html" class="btn btn-sm btn-link text-primary p-0">عرض الكل</a>
+                    </div>
+                    <div class="table-responsive">
+                        <table class="table table-hover">
+                            <thead>
+                                <tr>
+                                    <th>رقم الطلب</th>
+                                    <th>المواطن</th>
+                                    <th>الخدمة</th>
+                                    <th>التاريخ</th>
+                                    <th>الحالة</th>
+                                    <th>الإجراء</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td class="fw-bold">#REQ-8921</td>
+                                    <td>سالم علي حسن</td>
+                                    <td>تجديد جواز سفر</td>
+                                    <td>2024-05-15</td>
+                                    <td><span class="status-badge bg-pending">قيد الانتظار</span></td>
+                                    <td><a href="review_request.html" class="btn btn-sm btn-primary-custom">فتح</a></td>
+                                </tr>
+                                <tr>
+                                    <td class="fw-bold">#REQ-8922</td>
+                                    <td>نورة السبيعي</td>
+                                    <td>بطاقة هوية</td>
+                                    <td>2024-05-15</td>
+                                    <td><span class="status-badge bg-processing">قيد المعالجة</span></td>
+                                    <td><a href="review_request.html" class="btn btn-sm btn-primary-custom">فتح</a></td>
+                                </tr>
+                                <tr>
+                                    <td class="fw-bold">#REQ-8923</td>
+                                    <td>فهد المطيري</td>
+                                    <td>شهادة ميلاد</td>
+                                    <td>2024-05-14</td>
+                                    <td><span class="status-badge bg-pending">قيد الانتظار</span></td>
+                                    <td><a href="review_request.html" class="btn btn-sm btn-primary-custom">فتح</a></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Alerts/Notifications -->
+            <div class="col-lg-4 animated-fade-in" style="animation-delay: 0.6s;">
+                <div class="custom-card">
+                    <h5 class="m-0 fw-bold mb-4">تنبيهات هامة</h5>
+                    <div class="list-group list-group-flush">
+                        <div class="list-group-item px-0 border-0 mb-3">
+                            <div class="d-flex gap-3">
+                                <div class="rounded-circle bg-light-danger p-2 text-danger" style="width: 40px; height: 40px; display: flex; align-items: center; justify-content: center; background-color: rgba(239, 68, 68, 0.1);">
+                                    <i class="fas fa-exclamation-triangle"></i>
+                                </div>
+                                <div>
+                                    <div class="fw-bold" style="font-size: 0.9rem;">شكوى عاجلة</div>
+                                    <div class="text-muted" style="font-size: 0.85rem;">تأخر في معالجة الطلب #8810 منذ 48 ساعة</div>
+                                    <div class="mt-1" style="font-size: 0.75rem; color: #adb5bd;">منذ ساعتين</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="list-group-item px-0 border-0 mb-3">
+                            <div class="d-flex gap-3">
+                                <div class="rounded-circle bg-light-info p-2 text-info" style="width: 40px; height: 40px; display: flex; align-items: center; justify-content: center; background-color: rgba(59, 130, 246, 0.1);">
+                                    <i class="fas fa-info-circle"></i>
+                                </div>
+                                <div>
+                                    <div class="fw-bold" style="font-size: 0.9rem;">تحديث النظام</div>
+                                    <div class="text-muted" style="font-size: 0.85rem;">سيتم عمل صيانة دورية للنظام غداً الساعة 2 صباحاً</div>
+                                    <div class="mt-1" style="font-size: 0.75rem; color: #adb5bd;">منذ 5 ساعات</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="list-group-item px-0 border-0">
+                            <div class="d-flex gap-3">
+                                <div class="rounded-circle bg-light-warning p-2 text-warning" style="width: 40px; height: 40px; display: flex; align-items: center; justify-content: center; background-color: rgba(245, 158, 11, 0.1);">
+                                    <i class="fas fa-user-clock"></i>
+                                </div>
+                                <div>
+                                    <div class="fw-bold" style="font-size: 0.9rem;">موعد قادم</div>
+                                    <div class="text-muted" style="font-size: 0.85rem;">عبدالعزيز العتيبي - الساعة 10:30 صباحاً</div>
+                                    <div class="mt-1" style="font-size: 0.75rem; color: #adb5bd;">بعد 45 دقيقة</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Bootstrap Bundle JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

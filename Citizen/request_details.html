@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>تفاصيل الطلب | بوابة المواطن</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.rtl.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .timeline {
+            border-right: 2px solid #e0e0e0;
+            padding-right: 20px;
+            position: relative;
+        }
+
+        .timeline-item {
+            position: relative;
+            margin-bottom: 30px;
+        }
+
+        .timeline-item::before {
+            content: '';
+            width: 16px;
+            height: 16px;
+            background: #fff;
+            border: 3px solid #e0e0e0;
+            border-radius: 50%;
+            position: absolute;
+            right: -29px;
+            top: 5px;
+            z-index: 1;
+        }
+
+        .timeline-item.active::before {
+            border-color: var(--primary-color);
+            background: var(--primary-color);
+        }
+
+        .timeline-item.completed::before {
+            border-color: var(--success-color);
+            background: var(--success-color);
+        }
+
+        .timeline-date {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            margin-bottom: 5px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="sidebar" id="sidebar">
+        <!-- Sidebar content same as others -->
+        <div class="sidebar-brand">
+            <i class="fas fa-landmark"></i>
+            <span>بوابة المواطن</span>
+        </div>
+        <ul class="sidebar-menu">
+            <li><a href="dashboard.html"><i class="fas fa-home"></i> لوحة التحكم</a></li>
+            <li><a href="profile.html"><i class="fas fa-user"></i> الملف الشخصي</a></li>
+            <li><a href="services.html"><i class="fas fa-concierge-bell"></i> الخدمات الإلكترونية</a></li>
+            <li><a href="my_requests.html" class="active"><i class="fas fa-file-alt"></i> طلباتي</a></li>
+            <li><a href="booking.html"><i class="fas fa-calendar-check"></i> حجز موعد</a></li>
+            <li><a href="notifications.html"><i class="fas fa-bell"></i> الإشعارات</a></li>
+            <li><a href="complaints.html"><i class="fas fa-exclamation-circle"></i> الشكاوى والمقترحات</a></li>
+            <li><a href="#" class="text-danger"><i class="fas fa-sign-out-alt"></i> تسجيل خروج</a></li>
+        </ul>
+    </div>
+
+    <div class="main-content">
+        <div class="d-flex justify-content-between align-items-center mb-4">
+            <div class="d-flex align-items-center">
+                <i class="fas fa-bars menu-toggle me-3" onclick="toggleSidebar()"></i>
+                <div class="d-flex align-items-center gap-2">
+                    <a href="my_requests.html" class="text-muted"><i class="fas fa-arrow-right"></i></a>
+                    <h4 class="m-0 fw-bold">تفاصيل الطلب #REQ-2023-105</h4>
+                </div>
+            </div>
+            <span class="status-badge status-processing fs-6 px-3">قيد المعالجة</span>
+        </div>
+
+        <div class="row g-4">
+            <div class="col-lg-8">
+                <!-- Request Info Section -->
+                <div class="custom-card mb-4">
+                    <h5 class="fw-bold mb-4 border-bottom pb-3">بيانات الخدمة</h5>
+                    <div class="row g-3">
+                        <div class="col-md-6">
+                            <label class="text-muted small">نوع الخدمة</label>
+                            <div class="fw-medium">تجديد جواز سفر</div>
+                        </div>
+                        <div class="col-md-6">
+                            <label class="text-muted small">تاريخ التقديم</label>
+                            <div class="fw-medium">20/10/2023</div>
+                        </div>
+
+                        <div class="col-md-6">
+                            <label class="text-muted small">الرسوم المدفوعة</label>
+                            <div class="fw-medium text-primary">345,000 ر.ي</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Attachments Section -->
+                <div class="custom-card mb-4">
+                    <h5 class="fw-bold mb-4 border-bottom pb-3">المرفقات</h5>
+                    <div class="d-flex gap-3 flex-wrap">
+                        <div class="border rounded p-3 d-flex align-items-center gap-3 bg-light">
+                            <i class="fas fa-file-pdf text-danger fs-3"></i>
+                            <div>
+                                <div class="small fw-bold">ID_Copy.pdf</div>
+                                <div class="text-muted" style="font-size: 0.75rem;">1.2 MB</div>
+                            </div>
+                            <a href="#" class="text-primary ms-2"><i class="fas fa-download"></i></a>
+                        </div>
+                        <div class="border rounded p-3 d-flex align-items-center gap-3 bg-light">
+                            <i class="fas fa-file-image text-primary fs-3"></i>
+                            <div>
+                                <div class="small fw-bold">Personal_Photo.jpg</div>
+                                <div class="text-muted" style="font-size: 0.75rem;">2.5 MB</div>
+                            </div>
+                            <a href="#" class="text-primary ms-2"><i class="fas fa-download"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Notes Section -->
+                <div class="custom-card">
+                    <h5 class="fw-bold mb-3 border-bottom pb-3">ملاحظات</h5>
+                    <p class="text-muted">لا يوجد ملاحظات إضافية حالياً من قبل الموظف المختص.</p>
+                </div>
+            </div>
+
+            <!-- Timeline Status -->
+            <div class="col-lg-4">
+                <div class="custom-card h-100">
+                    <h5 class="fw-bold mb-4">حالة الطلب</h5>
+                    <div class="timeline">
+                        <div class="timeline-item completed">
+                            <div class="timeline-date">20/10/2023 10:30 ص</div>
+                            <h6 class="fw-bold m-0">تم استلام الطلب</h6>
+                            <small class="text-muted">تم استلام طلبك بنجاح وهو قيد المراجعة الأولية.</small>
+                        </div>
+                        <div class="timeline-item completed">
+                            <div class="timeline-date">21/10/2023 09:15 ص</div>
+                            <h6 class="fw-bold m-0">تأكيد الدفع</h6>
+                            <small class="text-muted">تم تأكيد عملية الدفع الإلكتروني.</small>
+                        </div>
+                        <div class="timeline-item active">
+                            <div class="timeline-date">22/10/2023 11:00 ص</div>
+                            <h6 class="fw-bold m-0">قيد التنفيذ</h6>
+                            <small class="text-muted">يقوم الموظف المختص بمراجعة الوثائق والمرفقات.</small>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-date fw-light">-</div>
+                            <h6 class="fw-bold m-0 text-muted">إصدار الجواز</h6>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-date fw-light">-</div>
+                            <h6 class="fw-bold m-0 text-muted">جاهز للتسليم</h6>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="script.js"></script>
+</body>
+
+</html>

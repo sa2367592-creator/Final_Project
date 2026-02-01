@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>طلب جواز سفر بحري | بوابة المواطن</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.rtl.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <div class="sidebar" id="sidebar">
+        <div class="sidebar-brand">
+            <i class="fas fa-landmark"></i>
+            <span>بوابة المواطن</span>
+        </div>
+        <ul class="sidebar-menu">
+            <li><a href="dashboard.html"><i class="fas fa-home"></i> لوحة التحكم</a></li>
+            <li><a href="profile.html"><i class="fas fa-user"></i> الملف الشخصي</a></li>
+            <li><a href="services.html" class="active"><i class="fas fa-concierge-bell"></i> الخدمات الإلكترونية</a>
+            </li>
+            <li><a href="my_requests.html"><i class="fas fa-file-alt"></i> طلباتي</a></li>
+            <li><a href="booking.html"><i class="fas fa-calendar-check"></i> حجز موعد</a></li>
+            <li><a href="notifications.html"><i class="fas fa-bell"></i> الإشعارات</a></li>
+            <li><a href="complaints.html"><i class="fas fa-exclamation-circle"></i> الشكاوى والمقترحات</a></li>
+            <li><a href="#" class="text-danger"><i class="fas fa-sign-out-alt"></i> تسجيل خروج</a></li>
+        </ul>
+    </div>
+
+    <div class="main-content">
+        <div class="d-flex justify-content-between align-items-center mb-4">
+            <div class="d-flex align-items-center">
+                <i class="fas fa-bars menu-toggle me-3" onclick="toggleSidebar()"></i>
+                <div class="d-flex align-items-center gap-2">
+                    <a href="services.html" class="text-muted"><i class="fas fa-arrow-right"></i></a>
+                    <h4 class="m-0 fw-bold">تقديم طلب خدمة</h4>
+                </div>
+            </div>
+        </div>
+
+        <div class="row justify-content-center">
+            <div class="col-lg-9">
+                <div class="custom-card">
+                    <div class="d-flex align-items-center gap-3 mb-4 border-bottom pb-3">
+                        <div class="card-icon mb-0"
+                            style="width: 50px; height: 50px; font-size: 1.2rem; background: var(--info-light); color: var(--info-color);">
+                            <i class="fas fa-anchor"></i>
+                        </div>
+                        <div>
+                            <h5 class="fw-bold m-0">طلب جواز سفر بحري</h5>
+                            <small class="text-muted">يرجى تعبئة البيانات المطلوبة بدقة</small>
+                        </div>
+                    </div>
+
+                    <form action="payment.html">
+                        <div class="row g-3">
+                            <div class="col-md-6">
+                                <label class="form-label fw-medium">نوع الطلب</label>
+                                <select class="form-select form-control-custom" id="requestType"
+                                    onchange="toggleCertificateNumber()">
+                                    <option value="new" selected>إصدار جديد</option>
+                                    <option value="renew">تجديد</option>
+                                    <option value="lost">بدل فاقد / تالف</option>
+                                    <option value="modify">تعديل بيانات</option>
+                                </select>
+                            </div>
+                            <div class="col-md-6" id="certificateNumberGroup" style="display: none;">
+                                <label class="form-label fw-medium">رقم الجواز السابق</label>
+                                <input type="text" class="form-control form-control-custom"
+                                    placeholder="أدخل رقم الجواز">
+                            </div>
+
+
+
+                            <!-- Navy Requirement -->
+                            <div class="col-12">
+                                <div class="alert alert-warning border-warning">
+                                    <h6 class="fw-bold"><i class="fas fa-ship me-2"></i>متطلبات جواز السفر البحري</h6>
+                                    <p class="small mb-2">يجب إرفاق رسالة تزكية أو موافقة من الجهات البحرية المختصة.</p>
+                                    <div class="mb-0">
+                                        <label class="form-label small fw-bold">إرفاق رسالة البحرية (صورة أو
+                                            PDF)</label>
+                                        <input type="file" class="form-control form-control-sm">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Passport Specific Fields -->
+                            <div class="col-12">
+                                <h6 class="fw-bold text-primary mt-3 border-bottom pb-2">بيانات الهوية الشخصية</h6>
+                                <div class="row g-3">
+                                    <div class="col-md-3">
+                                        <label class="form-label small text-muted">رقم الهوية</label>
+                                        <input type="text" class="form-control form-control-sm"
+                                            placeholder="رقم الهوية">
+                                    </div>
+                                    <div class="col-md-3">
+                                        <label class="form-label small text-muted">جهة الإصدار</label>
+                                        <input type="text" class="form-control form-control-sm"
+                                            placeholder="جهة الإصدار">
+                                    </div>
+                                    <div class="col-md-3">
+                                        <label class="form-label small text-muted">تاريخ الإصدار</label>
+                                        <input type="date" class="form-control form-control-sm">
+                                    </div>
+                                </div>
+
+                                <h6 class="fw-bold text-primary mt-4 border-bottom pb-2">البيانات الشخصية (Personal
+                                    Details)</h6>
+                                <div class="row g-3">
+                                    <div class="col-md-6">
+                                        <label class="form-label small text-muted">الإسم الثلاثي (Arabic)</label>
+                                        <input type="text" class="form-control form-control-sm"
+                                            placeholder="الإسم الثلاثي">
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label class="form-label small text-muted">Given Name (English)</label>
+                                        <input type="text" class="form-control form-control-sm" dir="ltr"
+                                            placeholder="Given Name">
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label class="form-label small text-muted">اللقب (Surname Arabic)</label>
+                                        <input type="text" class="form-control form-control-sm" placeholder="اللقب">
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label class="form-label small text-muted">Surname (English)</label>
+                                        <input type="text" class="form-control form-control-sm" dir="ltr"
+                                            placeholder="Surname">
+                                    </div>
+                                    <div class="col-md-4">
+                                        <label class="form-label small text-muted">تاريخ الميلاد (DOB)</label>
+                                        <input type="date" class="form-control form-control-sm">
+                                    </div>
+                                    <div class="col-md-4">
+                                        <label class="form-label small text-muted">الجنس (Sex)</label>
+                                        <select class="form-select form-select-sm">
+                                            <option>ذكر (Male)</option>
+                                            <option>أنثى (Female)</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <label class="form-label small text-muted">المحافظة</label>
+                                        <select class="form-select form-select-sm governorate-select">
+                                            <option value="" selected disabled>اختر المحافظة</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <label class="form-label small text-muted">المديرية</label>
+                                        <select class="form-select form-select-sm district-select">
+                                            <option value="" selected disabled>اختر المديرية أولاً</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <label class="form-label small text-muted">الدولة</label>
+                                        <input type="text" class="form-control form-control-sm" value="اليمن"
+                                            placeholder="الدولة">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-md-12">
+                                <label class="form-label fw-medium">المرفقات المطلوبة</label>
+                                <div class="border rounded-3 p-4 text-center bg-light"
+                                    style="border-style: dashed !important;">
+                                    <i class="fas fa-cloud-upload-alt fs-2 text-muted mb-2"></i>
+                                    <p class="mb-2">اسحب وأفلت الملفات هنا أو</p>
+                                    <button type="button" class="btn btn-outline-primary btn-sm">تصفح الملفات</button>
+                                </div>
+                            </div>
+
+                            <div class="col-md-12">
+                                <label class="form-label fw-medium">ملاحظات إضافية</label>
+                                <textarea class="form-control form-control-custom" rows="3"
+                                    placeholder="أدخل أي تفاصيل إضافية هنا..."></textarea>
+                            </div>
+                        </div>
+
+                        <div class="d-flex justify-content-end gap-2 mt-4 pt-3 border-top">
+                            <button type="button" class="btn btn-light" onclick="history.back()">إلغاء</button>
+                            <button type="submit" class="btn btn-primary-custom px-5">متابعة للدفع</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="script.js"></script>
+    <script>
+        function toggleCertificateNumber() {
+            const requestType = document.getElementById('requestType').value;
+            const certGroup = document.getElementById('certificateNumberGroup');
+            certGroup.style.display = (requestType !== 'new') ? 'block' : 'none';
+        }
+    </script>
+</body>
+
+</html>

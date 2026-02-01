@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>إدارة الشكاوى - لوحة الموظف</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.rtl.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        .complaint-item {
+            border-right: 4px solid transparent;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .complaint-item:hover {
+            background-color: #f8fafc;
+        }
+
+        .complaint-item.active {
+            border-right-color: var(--primary-color);
+            background-color: rgba(49, 93, 142, 0.05);
+        }
+
+        .bg-urgent {
+            background-color: #fee2e2;
+            color: #991b1b;
+        }
+
+        .bg-normal {
+            background-color: #dbeafe;
+            color: #1e40af;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="sidebar">
+        <div class="sidebar-header">
+            <i class="fas fa-user-tie fa-2x text-primary"></i>
+            <span class="sidebar-brand">لوحة الموظف</span>
+        </div>
+        <ul class="sidebar-menu">
+            <li><a href="index.html"><i class="fas fa-home"></i> الرئيسية</a></li>
+            <li><a href="assigned_requests.html"><i class="fas fa-tasks"></i> الطلبات الموكلة</a></li>
+            <li><a href="appointments.html"><i class="fas fa-calendar-alt"></i> إدارة المواعيد</a></li>
+            <li><a href="document_issuance.html"><i class="fas fa-file-export"></i> إصدار الوثائق</a></li>
+            <li><a href="complaints.html" class="active"><i class="fas fa-exclamation-circle"></i> الشكاوى</a></li>
+        </ul>
+    </div>
+
+    <div class="main-content">
+        <div class="top-navbar">
+            <h4 class="m-0 fw-bold">إدارة الشكاوى والبلاغات</h4>
+            <div class="d-flex align-items-center gap-3">
+                <span class="badge bg-danger rounded-pill">4 شكاوى عاجلة</span>
+            </div>
+        </div>
+
+        <div class="row g-0 bg-white border rounded-3 overflow-hidden animated-fade-in" style="min-height: 70vh;">
+            <!-- Complaints List -->
+            <div class="col-md-4 border-start">
+                <div class="p-3 border-bottom bg-light">
+                    <div class="search-wrapper">
+                        <i class="fas fa-search"></i>
+                        <input type="text" class="form-control form-control-sm" placeholder="بحث في الشكاوى...">
+                    </div>
+                </div>
+                <div class="overflow-auto" style="max-height: 60vh;">
+                    <div class="complaint-item p-3 border-bottom active">
+                        <div class="d-flex justify-content-between mb-1">
+                            <span class="fw-bold fs-6">مشعل العتيبي</span>
+                            <span class="badge bg-urgent small">عاجل</span>
+                        </div>
+                        <div class="text-truncate text-muted small">تأخر وصول جواز السفر بالبريد منذ أسبوع...</div>
+                        <div class="mt-2 smallest text-end text-muted" style="font-size: 0.7rem;">منذ 15 دقيقة</div>
+                    </div>
+                    <div class="complaint-item p-3 border-bottom">
+                        <div class="d-flex justify-content-between mb-1">
+                            <span class="fw-bold fs-6">نورة الشهراني</span>
+                            <span class="badge bg-normal small">عادي</span>
+                        </div>
+                        <div class="text-truncate text-muted small">صعوبة في تحميل المرفقات عبر الموقع...</div>
+                        <div class="mt-2 smallest text-end text-muted" style="font-size: 0.7rem;">منذ ساعتين</div>
+                    </div>
+                    <div class="complaint-item p-3 border-bottom">
+                        <div class="d-flex justify-content-between mb-1">
+                            <span class="fw-bold fs-6">ياسر القحطاني</span>
+                            <span class="badge bg-normal small">عادي</span>
+                        </div>
+                        <div class="text-truncate text-muted small">استفسار عن رسوم إصدار شهادة ميلاد...</div>
+                        <div class="mt-2 smallest text-end text-muted" style="font-size: 0.7rem;">أمس</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Response Screen -->
+            <div class="col-md-8">
+                <div id="complaintDetail" class="p-4">
+                    <div class="d-flex justify-content-between align-items-start mb-4">
+                        <div>
+                            <h5 class="fw-bold mb-1">تأخر وصول جواز السفر بالبريد</h5>
+                            <div class="text-muted small">رقم الشكوى: #CMP-552 | من: مشعل العتيبي</div>
+                        </div>
+                        <div class="text-end">
+                            <div class="text-muted smallest mb-1">تاريخ التقديم: 2024-05-29</div>
+                            <span class="status-badge bg-pending">بانتظار الرد</span>
+                        </div>
+                    </div>
+
+                    <div class="bg-light p-3 rounded-3 mb-4">
+                        <h6 class="fw-bold"><i class="fas fa-comment-alt text-primary me-2"></i> نص الشكوى:</h6>
+                        <p class="mb-0 fs-6">السلام عليكم، لقد قمت بطلب تجديد جواز السفر منذ 10 أيام وتمت الموافقة عليه
+                            وإصدار الوثيقة رقم (J-9922)، ولكن حتى الآن لم يتم تسليمه لشركة الشحن أو تحديث الحالة. أرجو
+                            المتابعة.</p>
+                    </div>
+
+                    <hr class="my-4">
+
+                    <div class="response-section">
+                        <h6 class="fw-bold mb-3"><i class="fas fa-reply text-success me-2"></i> الرد الرسمي:</h6>
+                        <div class="mb-3">
+                            <select class="form-select form-select-sm mb-2 w-50">
+                                <option value="">اختر قالب رد سريع...</option>
+                                <option value="1">تم التحقق وجاري التنسيق مع الشحن</option>
+                                <option value="2">يرجى مراجعة الفرع القريب منك</option>
+                                <option value="3">الطلب قيد المراجعة الفنية</option>
+                            </select>
+                            <textarea class="form-control" rows="6"
+                                placeholder="اكتب الرد الرسمي هنا للاعتماد والإرسال للمواطن..."></textarea>
+                        </div>
+                        <div class="d-flex gap-2">
+                            <button class="btn btn-primary-custom px-4">
+                                <i class="fas fa-paper-plane me-2"></i> إرسال الرد الرسمي
+                            </button>
+                            <button class="btn btn-outline-secondary px-4">
+                                <i class="fas fa-save me-2"></i> حفظ كمسودة
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="alert alert-warning mt-4 small" style="border-radius: 8px;">
+                        <i class="fas fa-exclamation-circle me-1"></i>
+                        تنبيه: سيتم إرسال هذا الرد عبر رسالة نصية (SMS) وبريد إلكتروني للمواطن فور الضغط على إرسال.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>
